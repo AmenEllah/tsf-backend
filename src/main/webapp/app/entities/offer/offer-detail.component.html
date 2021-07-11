@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offer">
+            <h2><span jhiTranslate="tfsBackendApp.offer.detail.title">Offer</span> {{ offer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.offer.name">Name</span></dt>
+                <dd>
+                    <span>{{ offer.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.offer.price">Price</span></dt>
+                <dd>
+                    <span>{{ offer.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.offer.url">Url</span></dt>
+                <dd>
+                    <span>{{ offer.url }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.offer.detailOffer">Detail Offer</span></dt>
+                <dd>
+                    <span *ngFor="let detailOffer of offer.detailOffers; let last = last">
+                        <a [routerLink]="['/detail-offer', detailOffer?.id, 'view']">{{ detailOffer.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer', offer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

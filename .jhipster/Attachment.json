@@ -1,0 +1,47 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "request",
+      "otherEntityName": "request",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "attachment"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "path",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "attachmentType",
+      "fieldType": "AttachmentType",
+      "fieldValues": "CIN_RECTO,CIN_VERSO,SECOND_NATIONALITY,RESIDENCY_RECTO,RESIDENCY_VERSO,INCOME,FATCA"
+    },
+    {
+      "fieldName": "fileName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AttachmentStatus",
+      "fieldValues": "VALID,INVALID,TO_COMPLETE,COMPLETED",
+      "fieldValidateRules": []
+    }
+  ],
+  "changelogDate": "20210402093731",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "attachment",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

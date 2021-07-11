@@ -1,0 +1,23 @@
+{
+  "tfsBackendApp": {
+    "monthlyNetIncome": {
+      "home": {
+        "title": "MonthlyNetIncomes",
+        "createLabel": "Créer un nouveau Monthly Net Income",
+        "createOrEditLabel": "Créer ou éditer un Monthly Net Income",
+        "notFound": "Aucun Monthly Net Income trouvé"
+      },
+      "created": "Un nouveau Monthly Net Income a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Monthly Net Income avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Monthly Net Income avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Monthly Net Income {{ id }} ?"
+      },
+      "detail": {
+        "title": "Monthly Net Income"
+      },
+      "incomesFR": "Incomes FR",
+      "incomesEN": "Incomes EN"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "request",
+      "otherEntityName": "request",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "document"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "typeDocument",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomFichier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emplacement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idDossierSigned",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hasSigned",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateUpdate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20210209130422",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "document",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

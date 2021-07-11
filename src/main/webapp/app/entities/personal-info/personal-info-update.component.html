@@ -1,0 +1,177 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-personal-info-heading" jhiTranslate="tfsBackendApp.personalInfo.home.createOrEditLabel">Create or edit a Personal Info</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.civility" for="field_civility">Civility</label>
+                    <select class="form-control" name="civility" formControlName="civility" id="field_civility">
+                        <option value="MADAME">{{ 'tfsBackendApp.Civility.MADAME' | translate }}</option>
+                        <option value="MONSIEUR">{{ 'tfsBackendApp.Civility.MONSIEUR' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.nativeCountry" for="field_nativeCountry">Native Country</label>
+                    <input type="text" class="form-control" name="nativeCountry" id="field_nativeCountry"
+                           formControlName="nativeCountry"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.birthday" for="field_birthday">Birthday</label>
+                    <div class="input-group">
+                        <input id="field_birthday" type="text" class="form-control" name="birthday" ngbDatepicker #birthdayDp="ngbDatepicker" formControlName="birthday"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="birthdayDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.clientABT" for="field_clientABT">Client ABT</label>
+                    <input type="checkbox" class="form-control" name="clientABT" id="field_clientABT"
+                           formControlName="clientABT"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.rib" for="field_rib">Rib</label>
+                    <input type="text" class="form-control" name="rib" id="field_rib"
+                           formControlName="rib"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.nationality" for="field_nationality">Nationality</label>
+                    <input type="text" class="form-control" name="nationality" id="field_nationality"
+                           formControlName="nationality"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.secondNationality" for="field_secondNationality">Second Nationality</label>
+                    <input type="text" class="form-control" name="secondNationality" id="field_secondNationality"
+                           formControlName="secondNationality"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.nbrkids" for="field_nbrkids">Nbrkids</label>
+                    <input type="number" class="form-control" name="nbrkids" id="field_nbrkids"
+                           formControlName="nbrkids"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.maritalStatus" for="field_maritalStatus">Marital Status</label>
+                    <input type="text" class="form-control" name="maritalStatus" id="field_maritalStatus"
+                           formControlName="maritalStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                           formControlName="phone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.americanIndex" for="field_americanIndex">American Index</label>
+                    <input type="checkbox" class="form-control" name="americanIndex" id="field_americanIndex"
+                           formControlName="americanIndex"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.accountNumber" for="field_accountNumber">Account Number</label>
+                    <input type="text" class="form-control" name="accountNumber" id="field_accountNumber"
+                           formControlName="accountNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.cin" for="field_cin">Cin</label>
+                    <input type="text" class="form-control" name="cin" id="field_cin"
+                           formControlName="cin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyProof" for="field_abroadResidancyProof">Abroad Residancy Proof</label>
+                    <input type="text" class="form-control" name="abroadResidancyProof" id="field_abroadResidancyProof"
+                           formControlName="abroadResidancyProof"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyNumber" for="field_abroadResidancyNumber">Abroad Residancy Number</label>
+                    <input type="text" class="form-control" name="abroadResidancyNumber" id="field_abroadResidancyNumber"
+                           formControlName="abroadResidancyNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.cinDeliveryDate" for="field_cinDeliveryDate">Cin Delivery Date</label>
+                    <div class="d-flex">
+                        <input id="field_cinDeliveryDate" type="datetime-local" class="form-control" name="cinDeliveryDate" formControlName="cinDeliveryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyDeliveryDate" for="field_abroadResidancyDeliveryDate">Abroad Residancy Delivery Date</label>
+                    <div class="d-flex">
+                        <input id="field_abroadResidancyDeliveryDate" type="datetime-local" class="form-control" name="abroadResidancyDeliveryDate" formControlName="abroadResidancyDeliveryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyExpirationDate" for="field_abroadResidancyExpirationDate">Abroad Residancy Expiration Date</label>
+                    <div class="d-flex">
+                        <input id="field_abroadResidancyExpirationDate" type="datetime-local" class="form-control" name="abroadResidancyExpirationDate" formControlName="abroadResidancyExpirationDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.request" for="field_request">Request</label>
+                    <select class="form-control" id="field_request" name="request" formControlName="requestId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requestOption.id" *ngFor="let requestOption of requests; trackBy: trackById">{{ requestOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.personalInfo.agency" for="field_agency">Agency</label>
+                    <select class="form-control" id="field_agency" name="agency" formControlName="agencyId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="agencyOption.id" *ngFor="let agencyOption of agencies; trackBy: trackById">{{ agencyOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

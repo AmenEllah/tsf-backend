@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.request.home.title">Requests</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-request" [routerLink]="['/request/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.request.home.createLabel">
+            Create a new Request
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="requests?.length === 0">
+        <span jhiTranslate="tfsBackendApp.request.home.notFound">No requests found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="requests && requests.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="visioDate"><span jhiTranslate="tfsBackendApp.request.visioDate">Visio Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sendingMailDate"><span jhiTranslate="tfsBackendApp.request.sendingMailDate">Sending Mail Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="state"><span jhiTranslate="tfsBackendApp.request.state">State</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="step"><span jhiTranslate="tfsBackendApp.request.step">Step</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeVerification"><span jhiTranslate="tfsBackendApp.request.codeVerification">Code Verification</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amplitudeRef"><span jhiTranslate="tfsBackendApp.request.amplitudeRef">Amplitude Ref</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="requestState"><span jhiTranslate="tfsBackendApp.request.requestState">Request State</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="requestStatus"><span jhiTranslate="tfsBackendApp.request.requestStatus">Request Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="offerId"><span jhiTranslate="tfsBackendApp.request.offer">Offer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let request of requests ;trackBy: trackId">
+                    <td><a [routerLink]="['/request', request.id, 'view']">{{ request.id }}</a></td>
+                    <td>{{ request.visioDate | date:'mediumDate' }}</td>
+                    <td>{{ request.sendingMailDate | date:'mediumDate' }}</td>
+                    <td>{{ request.state }}</td>
+                    <td>{{ request.step }}</td>
+                    <td>{{ request.codeVerification }}</td>
+                    <td>{{ request.amplitudeRef }}</td>
+                    <td jhiTranslate="{{ 'tfsBackendApp.StateRequest.' + request.requestState }}">{{ request.requestState }}</td>
+                    <td jhiTranslate="{{ 'tfsBackendApp.RequestStatus.' + request.requestStatus }}">{{ request.requestStatus }}</td>
+                    <td>
+                        <div *ngIf="request.offerId">
+                            <a [routerLink]="['/offer', request.offerId , 'view']" >{{ request.offerId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/request', request.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/request', request.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(request)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="requests && requests.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "tfsBackendApp": {
+    "authentitficationToSign": {
+      "home": {
+        "title": "AuthentitficationToSigns",
+        "createLabel": "Créer un nouveau Authentitfication To Sign",
+        "createOrEditLabel": "Créer ou éditer un Authentitfication To Sign",
+        "notFound": "Aucun Authentitfication To Sign trouvé"
+      },
+      "created": "Un nouveau Authentitfication To Sign a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Authentitfication To Sign avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Authentitfication To Sign avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Authentitfication To Sign {{ id }} ?"
+      },
+      "detail": {
+        "title": "Authentitfication To Sign"
+      },
+      "email": "Email",
+      "token": "Token",
+      "dateCreation": "Date Creation",
+      "valide": "Valide"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nationality">
+            <h2><span jhiTranslate="tfsBackendApp.nationality.detail.title">Nationality</span> {{ nationality.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.nationality.libelleFR">Libelle FR</span></dt>
+                <dd>
+                    <span>{{ nationality.libelleFR }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.nationality.libelleEN">Libelle EN</span></dt>
+                <dd>
+                    <span>{{ nationality.libelleEN }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.nationality.code">Code</span></dt>
+                <dd>
+                    <span>{{ nationality.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.nationality.flag">Flag</span></dt>
+                <dd>
+                    <span>{{ nationality.flag }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nationality', nationality.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

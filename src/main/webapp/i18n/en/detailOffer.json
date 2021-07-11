@@ -1,0 +1,23 @@
+{
+  "tfsBackendApp": {
+    "detailOffer": {
+      "home": {
+        "title": "Detail Offers",
+        "createLabel": "Create a new Detail Offer",
+        "createOrEditLabel": "Create or edit a Detail Offer",
+        "notFound": "No Detail Offers found"
+      },
+      "created": "A new Detail Offer is created with identifier {{ param }}",
+      "updated": "A Detail Offer is updated with identifier {{ param }}",
+      "deleted": "A Detail Offer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Detail Offer {{ id }}?"
+      },
+      "detail": {
+        "title": "Detail Offer"
+      },
+      "description": "Description",
+      "offer": "Offer"
+    }
+  }
+}

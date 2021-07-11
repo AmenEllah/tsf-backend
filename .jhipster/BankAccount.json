@@ -1,0 +1,39 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "requestBankAccount",
+      "otherEntityName": "requestBankAccount",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "bankAccount"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "libelleFR",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libelleEN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descriptionFR",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descriptionEN",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20201229135800",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "bank_account",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

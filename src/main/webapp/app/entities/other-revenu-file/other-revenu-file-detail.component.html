@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="otherRevenuFile">
+            <h2><span jhiTranslate="tfsBackendApp.otherRevenuFile.detail.title">Other Revenu File</span> {{ otherRevenuFile.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.otherRevenuFile.path">Path</span></dt>
+                <dd>
+                    <span>{{ otherRevenuFile.path }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.otherRevenuFile.requiredDoc">Required Doc</span></dt>
+                <dd>
+                    <div *ngIf="otherRevenuFile.requiredDocId">
+                        <a [routerLink]="['/required-doc', otherRevenuFile.requiredDocId, 'view']">{{ otherRevenuFile.requiredDocId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.otherRevenuFile.justifRevenu">Justif Revenu</span></dt>
+                <dd>
+                    <div *ngIf="otherRevenuFile.justifRevenuId">
+                        <a [routerLink]="['/justif-revenu', otherRevenuFile.justifRevenuId, 'view']">{{ otherRevenuFile.justifRevenuId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/other-revenu-file', otherRevenuFile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

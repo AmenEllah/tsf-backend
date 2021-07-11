@@ -1,0 +1,24 @@
+{
+  "tfsBackendApp": {
+    "municipality": {
+      "home": {
+        "title": "Municipalities",
+        "createLabel": "Créer un nouveau Municipality",
+        "createOrEditLabel": "Créer ou éditer un Municipality",
+        "notFound": "Aucun Municipality trouvé"
+      },
+      "created": "Un nouveau Municipality a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Municipality avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Municipality avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Municipality {{ id }} ?"
+      },
+      "detail": {
+        "title": "Municipality"
+      },
+      "name": "Name",
+      "agency": "Agency",
+      "governorate": "Governorate"
+    }
+  }
+}

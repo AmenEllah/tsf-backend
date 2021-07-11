@@ -1,0 +1,60 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "categoryId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "incomeTypeCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "incomeType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "monthlyIncomeId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "marketCode",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "market",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "segmentCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "segment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "activityId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "professionCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "profession",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20210422202835",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "supply_matrix",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

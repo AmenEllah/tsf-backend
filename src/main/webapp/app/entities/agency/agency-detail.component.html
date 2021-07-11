@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agency">
+            <h2><span jhiTranslate="tfsBackendApp.agency.detail.title">Agency</span> {{ agency.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.agency.name">Name</span></dt>
+                <dd>
+                    <span>{{ agency.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.agency.address">Address</span></dt>
+                <dd>
+                    <span>{{ agency.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.agency.zip">Zip</span></dt>
+                <dd>
+                    <span>{{ agency.zip }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.agency.city">City</span></dt>
+                <dd>
+                    <span>{{ agency.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.agency.municipality">Municipality</span></dt>
+                <dd>
+                    <div *ngIf="agency.municipalityId">
+                        <a [routerLink]="['/municipality', agency.municipalityId, 'view']">{{ agency.municipalityId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agency', agency.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

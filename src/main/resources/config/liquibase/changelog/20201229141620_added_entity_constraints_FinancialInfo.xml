@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity FinancialInfo.
+    -->
+    <changeSet id="20201229141620-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="activity_id"
+                                 baseTableName="financial_info"
+                                 constraintName="fk_financial_info_activity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="activity"/>
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="financial_info"
+                                 constraintName="fk_financial_info_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="personal_info_id"
+                                 baseTableName="financial_info"
+                                 constraintName="financial_info_personal_inf_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personal_info"/>
+
+        <addForeignKeyConstraint baseColumnNames="monthly_net_income_id"
+                                 baseTableName="financial_info"
+                                 constraintName="financial_info_monthly_net__id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="monthly_income"/>
+
+    </changeSet>
+</databaseChangeLog>

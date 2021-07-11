@@ -1,0 +1,46 @@
+{
+  "tfsBackendApp": {
+    "personalInfo": {
+      "home": {
+        "title": "Personal Infos",
+        "createLabel": "Create a new Personal Info",
+        "createOrEditLabel": "Create or edit a Personal Info",
+        "notFound": "No Personal Infos found"
+      },
+      "created": "A new Personal Info is created with identifier {{ param }}",
+      "updated": "A Personal Info is updated with identifier {{ param }}",
+      "deleted": "A Personal Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Personal Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Personal Info"
+      },
+      "civility": "Civility",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "nativeCountry": "Native Country",
+      "birthday": "Birthday",
+      "clientABT": "Client ABT",
+      "rib": "Rib",
+      "nationality": "Nationality",
+      "secondNationality": "Second Nationality",
+      "nbrkids": "Nbrkids",
+      "maritalStatus": "Marital Status",
+      "phone": "Phone",
+      "americanIndex": "American Index",
+      "accountNumber": "Account Number",
+      "cin": "Cin",
+      "abroadResidancyProof": "Abroad Residancy Proof",
+      "abroadResidancyNumber": "Abroad Residancy Number",
+      "cinDeliveryDate": "Cin Delivery Date",
+      "abroadResidancyDeliveryDate": "Abroad Residancy Delivery Date",
+      "abroadResidancyExpirationDate": "Abroad Residancy Expiration Date",
+      "request": "Request",
+      "adressInfo": "Adress Info",
+      "agency": "Agency",
+      "financialInfo": "Financial Info"
+    }
+  }
+}

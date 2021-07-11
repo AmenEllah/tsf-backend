@@ -1,0 +1,33 @@
+{
+  "tfsBackendApp": {
+    "requiredDoc": {
+      "home": {
+        "title": "RequiredDocs",
+        "createLabel": "Créer un nouveau Required Doc",
+        "createOrEditLabel": "Créer ou éditer un Required Doc",
+        "notFound": "Aucun Required Doc trouvé"
+      },
+      "created": "Un nouveau Required Doc a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Required Doc avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Required Doc avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Required Doc {{ id }} ?"
+      },
+      "detail": {
+        "title": "Required Doc"
+      },
+      "label": "Label",
+      "type": "Type",
+      "numCIN": "Num CIN",
+      "deliveryDateCin": "Delivery Date Cin",
+      "rectoCin": "Recto Cin",
+      "versoCin": "Verso Cin",
+      "fatca": "Fatca",
+      "request": "Request",
+      "requiredDocIncome": "Required Doc Income",
+      "requiredDocResidency": "Required Doc Residency",
+      "otherResidencyFile": "Other Residency File",
+      "otherRevenuFile": "Other Revenu File"
+    }
+  }
+}

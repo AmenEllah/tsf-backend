@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.derogation.home.title">Derogations</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-derogation" [routerLink]="['/derogation/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.derogation.home.createLabel">
+            Create a new Derogation
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="derogations?.length === 0">
+        <span jhiTranslate="tfsBackendApp.derogation.home.notFound">No derogations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="derogations && derogations.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="message"><span jhiTranslate="tfsBackendApp.derogation.message">Message</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="affectation"><span jhiTranslate="tfsBackendApp.derogation.affectation">Affectation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matricule"><span jhiTranslate="tfsBackendApp.derogation.matricule">Matricule</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="requestId"><span jhiTranslate="tfsBackendApp.derogation.request">Request</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let derogation of derogations ;trackBy: trackId">
+                    <td><a [routerLink]="['/derogation', derogation.id, 'view']">{{ derogation.id }}</a></td>
+                    <td>{{ derogation.message }}</td>
+                    <td jhiTranslate="{{ 'tfsBackendApp.RequestAffectation.' + derogation.affectation }}">{{ derogation.affectation }}</td>
+                    <td>{{ derogation.matricule }}</td>
+                    <td>
+                        <div *ngIf="derogation.requestId">
+                            <a [routerLink]="['/request', derogation.requestId , 'view']" >{{ derogation.requestId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/derogation', derogation.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/derogation', derogation.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(derogation)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="derogations && derogations.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

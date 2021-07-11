@@ -1,0 +1,25 @@
+{
+  "tfsBackendApp": {
+    "derogation": {
+      "home": {
+        "title": "Derogations",
+        "createLabel": "Create a new Derogation",
+        "createOrEditLabel": "Create or edit a Derogation",
+        "notFound": "No Derogations found"
+      },
+      "created": "A new Derogation is created with identifier {{ param }}",
+      "updated": "A Derogation is updated with identifier {{ param }}",
+      "deleted": "A Derogation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Derogation {{ id }}?"
+      },
+      "detail": {
+        "title": "Derogation"
+      },
+      "message": "Message",
+      "affectation": "Affectation",
+      "matricule": "Matricule",
+      "request": "Request"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subscriberStatus">
+            <h2><span jhiTranslate="tfsBackendApp.subscriberStatus.detail.title">Subscriber Status</span> {{ subscriberStatus.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.subscriberStatus.email">Email</span></dt>
+                <dd>
+                    <span>{{ subscriberStatus.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.subscriberStatus.numCin">Num Cin</span></dt>
+                <dd>
+                    <span>{{ subscriberStatus.numCin }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.subscriberStatus.withAppelVisio">With Appel Visio</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.appelVisioStatus.' + subscriberStatus.withAppelVisio }}">{{ subscriberStatus.withAppelVisio }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.subscriberStatus.withCertif">With Certif</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.withCertifStatus.' + subscriberStatus.withCertif }}">{{ subscriberStatus.withCertif }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.subscriberStatus.withSignature">With Signature</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.withSignatureStatus.' + subscriberStatus.withSignature }}">{{ subscriberStatus.withSignature }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.subscriberStatus.dateAppelVisio">Date Appel Visio</span></dt>
+                <dd>
+                    <span>{{ subscriberStatus.dateAppelVisio }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subscriber-status', subscriberStatus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

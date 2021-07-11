@@ -1,0 +1,42 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "personalInfo",
+      "otherEntityName": "personalInfo",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "adressInfo"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "countryOfResidence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "zip",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20201229135246",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "adress_info",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

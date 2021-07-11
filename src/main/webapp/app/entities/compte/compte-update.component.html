@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-compte-heading" jhiTranslate="tfsBackendApp.compte.home.createOrEditLabel">Create or edit a Compte</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.compte.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.compte.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.compte.dateDeNaissance" for="field_dateDeNaissance">Date De Naissance</label>
+                    <div class="input-group">
+                        <input id="field_dateDeNaissance" type="text" class="form-control" name="dateDeNaissance" ngbDatepicker #dateDeNaissanceDp="ngbDatepicker" formControlName="dateDeNaissance"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDeNaissanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.compte.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.compte.telephone" for="field_telephone">Telephone</label>
+                    <input type="number" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

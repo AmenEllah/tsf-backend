@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.adressInfo.home.title">Adress Infos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-adress-info" [routerLink]="['/adress-info/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.adressInfo.home.createLabel">
+            Create a new Adress Info
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="adressInfos?.length === 0">
+        <span jhiTranslate="tfsBackendApp.adressInfo.home.notFound">No adressInfos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="adressInfos && adressInfos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="countryOfResidence"><span jhiTranslate="tfsBackendApp.adressInfo.countryOfResidence">Country Of Residence</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="tfsBackendApp.adressInfo.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="zip"><span jhiTranslate="tfsBackendApp.adressInfo.zip">Zip</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="city"><span jhiTranslate="tfsBackendApp.adressInfo.city">City</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personalInfoId"><span jhiTranslate="tfsBackendApp.adressInfo.personalInfo">Personal Info</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let adressInfo of adressInfos ;trackBy: trackId">
+                    <td><a [routerLink]="['/adress-info', adressInfo.id, 'view']">{{ adressInfo.id }}</a></td>
+                    <td>{{ adressInfo.countryOfResidence }}</td>
+                    <td>{{ adressInfo.address }}</td>
+                    <td>{{ adressInfo.zip }}</td>
+                    <td>{{ adressInfo.city }}</td>
+                    <td>
+                        <div *ngIf="adressInfo.personalInfoId">
+                            <a [routerLink]="['/personal-info', adressInfo.personalInfoId , 'view']" >{{ adressInfo.personalInfoId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/adress-info', adressInfo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/adress-info', adressInfo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(adressInfo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="adressInfos && adressInfos.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

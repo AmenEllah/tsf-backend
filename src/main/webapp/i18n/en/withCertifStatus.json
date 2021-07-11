@@ -1,0 +1,9 @@
+{
+  "tfsBackendApp": {
+    "withCertifStatus": {
+      "null": "",
+      "O": "O",
+      "N": "N"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "tfsBackendApp": {
+    "botScan": {
+      "home": {
+        "title": "BotScans",
+        "createLabel": "Créer un nouveau Bot Scan",
+        "createOrEditLabel": "Créer ou éditer un Bot Scan",
+        "notFound": "Aucun Bot Scan trouvé"
+      },
+      "created": "Un nouveau Bot Scan a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bot Scan avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bot Scan avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Bot Scan {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bot Scan"
+      },
+      "ref_demande": "Ref Demande",
+      "cliDelta": "Cli Delta",
+      "signature": "Signature",
+      "compte": "Compte"
+    }
+  }
+}

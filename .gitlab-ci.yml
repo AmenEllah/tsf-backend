@@ -1,0 +1,68 @@
+image: khlifnabil/cicd-node12-java8:docker-cicd
+stages:
+  - validation
+  - release
+  - build-deploy-docker
+variables:
+  MAVEN_CLI_OPTS: '-s ci/settings.xml -B'
+  MAVEN_OPTS: '-Dmaven.repo.local=/.m2'
+before_script:
+  - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
+  - eval $(ssh-agent -s)
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo -n "$PROJECT_SSH_KEY" | ssh-add - >/dev/null
+  #- ssh-add <(echo "$PROJECT_SSH_KEY")
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  - git config --global user.email "khlifnabil0@gmail.com"
+  - git config --global user.name "Nabil Khlif"
+  - mkdir -p ~/.ssh
+  - export MVN_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+  - echo $MVN_VERSION
+  - 'GIT_COMMENT=$(git log -1 --pretty=%B)'
+maven-validate:
+  stage: validation
+  environment: staging
+  script:
+    - 'mvn $MAVEN_CLI_OPTS validate'
+  artifacts:
+  except:
+    refs:
+      - develop
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /[maven-release-plugin] prepare release /
+      - $CI_COMMIT_MESSAGE =~ /[maven-release-plugin] prepare for next development iteration /
+      - $CI_COMMIT_MESSAGE =~ /Merge branch /
+  when: on_success
+release:
+  stage: release
+  environment: staging
+  script:
+    - 'git checkout -B $CI_BUILD_REF_NAME && mvn release:prepare --batch-mode -DskipTests $MAVEN_CLI_OPTS;'
+  only:
+    refs:
+      - develop
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /Merge branch /
+  except:
+    - tags
+  when: manual
+build-docker:
+  stage: build-deploy-docker
+  tags:
+    - CC-Runner
+  environment:
+    name: push-docker
+  only:
+    refs:
+      - tags
+  script:
+    - 'npm install'
+    - 'mvn clean install -DskipTests'
+    - 'mvn jib:dockerBuild'
+    - 'docker login -u $DOCKER_USER_NAME -p $DOCKER_PWD'
+    - 'docker tag $DOCKER_REPOSITORY_BACK:$MVN_VERSION $DOCKER_USER_NAME/$DOCKER_REPOSITORY_BACK:latest'
+    - 'docker tag $DOCKER_REPOSITORY_BACK:$MVN_VERSION $DOCKER_USER_NAME/$DOCKER_REPOSITORY_BACK:$MVN_VERSION'
+    - 'docker push $DOCKER_USER_NAME/$DOCKER_REPOSITORY_BACK:latest'
+    - 'docker push $DOCKER_USER_NAME/$DOCKER_REPOSITORY_BACK:$MVN_VERSION'
+  when: on_success

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="request">
+            <h2><span jhiTranslate="tfsBackendApp.request.detail.title">Request</span> {{ request.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.request.visioDate">Visio Date</span></dt>
+                <dd>
+                    <span>{{ request.visioDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.request.sendingMailDate">Sending Mail Date</span></dt>
+                <dd>
+                    <span>{{ request.sendingMailDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.request.state">State</span></dt>
+                <dd>
+                    <span>{{ request.state }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.request.step">Step</span></dt>
+                <dd>
+                    <span>{{ request.step }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.request.codeVerification">Code Verification</span></dt>
+                <dd>
+                    <span>{{ request.codeVerification }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.request.amplitudeRef">Amplitude Ref</span></dt>
+                <dd>
+                    <span>{{ request.amplitudeRef }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.request.requestState">Request State</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.StateRequest.' + request.requestState }}">{{ request.requestState }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.request.requestStatus">Request Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.RequestStatus.' + request.requestStatus }}">{{ request.requestStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.request.offer">Offer</span></dt>
+                <dd>
+                    <div *ngIf="request.offerId">
+                        <a [routerLink]="['/offer', request.offerId, 'view']">{{ request.offerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/request', request.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="financialInfo">
+            <h2><span jhiTranslate="tfsBackendApp.financialInfo.detail.title">Financial Info</span> {{ financialInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.financialInfo.activity">Activity</span></dt>
+                <dd>
+                    <div *ngIf="financialInfo.activityId">
+                        <a [routerLink]="['/activity', financialInfo.activityId, 'view']">{{ financialInfo.activityId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.financialInfo.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="financialInfo.categoryId">
+                        <a [routerLink]="['/category', financialInfo.categoryId, 'view']">{{ financialInfo.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.financialInfo.personalInfo">Personal Info</span></dt>
+                <dd>
+                    <div *ngIf="financialInfo.personalInfoId">
+                        <a [routerLink]="['/personal-info', financialInfo.personalInfoId, 'view']">{{ financialInfo.personalInfoId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.financialInfo.monthlyNetIncome">Monthly Net Income</span></dt>
+                <dd>
+                    <div *ngIf="financialInfo.monthlyNetIncomeId">
+                        <a [routerLink]="['/monthly-net-income', financialInfo.monthlyNetIncomeId, 'view']">{{ financialInfo.monthlyNetIncomeId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/financial-info', financialInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

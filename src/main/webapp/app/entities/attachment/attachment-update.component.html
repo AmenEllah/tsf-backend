@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-attachment-heading" jhiTranslate="tfsBackendApp.attachment.home.createOrEditLabel">Create or edit a Attachment</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.attachment.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.attachment.path" for="field_path">Path</label>
+                    <input type="text" class="form-control" name="path" id="field_path"
+                           formControlName="path"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.attachment.attachmentType" for="field_attachmentType">Attachment Type</label>
+                    <select class="form-control" name="attachmentType" formControlName="attachmentType" id="field_attachmentType">
+                        <option value="CIN_RECTO">{{ 'tfsBackendApp.AttachmentType.CIN_RECTO' | translate }}</option>
+                        <option value="CIN_VERSO">{{ 'tfsBackendApp.AttachmentType.CIN_VERSO' | translate }}</option>
+                        <option value="SECOND_NATIONALITY">{{ 'tfsBackendApp.AttachmentType.SECOND_NATIONALITY' | translate }}</option>
+                        <option value="RESIDENCY_RECTO">{{ 'tfsBackendApp.AttachmentType.RESIDENCY_RECTO' | translate }}</option>
+                        <option value="RESIDENCY_VERSO">{{ 'tfsBackendApp.AttachmentType.RESIDENCY_VERSO' | translate }}</option>
+                        <option value="INCOME">{{ 'tfsBackendApp.AttachmentType.INCOME' | translate }}</option>
+                        <option value="FATCA">{{ 'tfsBackendApp.AttachmentType.FATCA' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.attachment.fileName" for="field_fileName">File Name</label>
+                    <input type="text" class="form-control" name="fileName" id="field_fileName"
+                           formControlName="fileName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.attachment.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="VALID">{{ 'tfsBackendApp.AttachmentStatus.VALID' | translate }}</option>
+                        <option value="INVALID">{{ 'tfsBackendApp.AttachmentStatus.INVALID' | translate }}</option>
+                        <option value="TO_COMPLETE">{{ 'tfsBackendApp.AttachmentStatus.TO_COMPLETE' | translate }}</option>
+                        <option value="COMPLETED">{{ 'tfsBackendApp.AttachmentStatus.COMPLETED' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.attachment.request" for="field_request">Request</label>
+                    <select class="form-control" id="field_request" name="request" formControlName="requestId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requestOption.id" *ngFor="let requestOption of requests; trackBy: trackById">{{ requestOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "tfsBackendApp": {
+    "staffPermission": {
+      "home": {
+        "title": "StaffPermissions",
+        "createLabel": "Créer un nouveau Staff Permission",
+        "createOrEditLabel": "Créer ou éditer un Staff Permission",
+        "notFound": "Aucun Staff Permission trouvé"
+      },
+      "created": "Un nouveau Staff Permission a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Staff Permission avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Staff Permission avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Staff Permission {{ id }} ?"
+      },
+      "detail": {
+        "title": "Staff Permission"
+      },
+      "idRole": "Id Role",
+      "idBu": "Id Bu",
+      "action": "Action",
+      "scopePermission": "Scope Permission",
+      "staffType": "Staff Type"
+    }
+  }
+}

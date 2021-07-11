@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.requiredDoc.home.title">Required Docs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-required-doc" [routerLink]="['/required-doc/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.requiredDoc.home.createLabel">
+            Create a new Required Doc
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="requiredDocs?.length === 0">
+        <span jhiTranslate="tfsBackendApp.requiredDoc.home.notFound">No requiredDocs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="requiredDocs && requiredDocs.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.requiredDoc.label">Label</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.requiredDoc.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.requiredDoc.numCIN">Num CIN</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.requiredDoc.deliveryDateCin">Delivery Date Cin</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.requiredDoc.rectoCin">Recto Cin</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.requiredDoc.versoCin">Verso Cin</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.requiredDoc.fatca">Fatca</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.requiredDoc.request">Request</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let requiredDoc of requiredDocs ;trackBy: trackId">
+                    <td><a [routerLink]="['/required-doc', requiredDoc.id, 'view']">{{ requiredDoc.id }}</a></td>
+                    <td>{{ requiredDoc.label }}</td>
+                    <td>{{ requiredDoc.type }}</td>
+                    <td>{{ requiredDoc.numCIN }}</td>
+                    <td>{{ requiredDoc.deliveryDateCin | date:'mediumDate' }}</td>
+                    <td>{{ requiredDoc.rectoCin }}</td>
+                    <td>{{ requiredDoc.versoCin }}</td>
+                    <td>{{ requiredDoc.fatca }}</td>
+                    <td>
+                        <div *ngIf="requiredDoc.requestId">
+                            <a [routerLink]="['/request', requiredDoc.requestId , 'view']" >{{ requiredDoc.requestId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/required-doc', requiredDoc.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/required-doc', requiredDoc.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(requiredDoc)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

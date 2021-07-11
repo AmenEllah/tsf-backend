@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.authentitficationToSign.home.title">Authentitfication To Signs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-authentitfication-to-sign" [routerLink]="['/authentitfication-to-sign/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.authentitficationToSign.home.createLabel">
+            Create a new Authentitfication To Sign
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="authentitficationToSigns?.length === 0">
+        <span jhiTranslate="tfsBackendApp.authentitficationToSign.home.notFound">No authentitficationToSigns found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="authentitficationToSigns && authentitficationToSigns.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="tfsBackendApp.authentitficationToSign.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="token"><span jhiTranslate="tfsBackendApp.authentitficationToSign.token">Token</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreation"><span jhiTranslate="tfsBackendApp.authentitficationToSign.dateCreation">Date Creation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valide"><span jhiTranslate="tfsBackendApp.authentitficationToSign.valide">Valide</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let authentitficationToSign of authentitficationToSigns ;trackBy: trackId">
+                    <td><a [routerLink]="['/authentitfication-to-sign', authentitficationToSign.id, 'view']">{{ authentitficationToSign.id }}</a></td>
+                    <td>{{ authentitficationToSign.email }}</td>
+                    <td>{{ authentitficationToSign.token }}</td>
+                    <td>{{ authentitficationToSign.dateCreation | date:'mediumDate' }}</td>
+                    <td>{{ authentitficationToSign.valide }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/authentitfication-to-sign', authentitficationToSign.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/authentitfication-to-sign', authentitficationToSign.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(authentitficationToSign)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="authentitficationToSigns && authentitficationToSigns.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

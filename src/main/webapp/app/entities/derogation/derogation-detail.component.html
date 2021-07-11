@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="derogation">
+            <h2><span jhiTranslate="tfsBackendApp.derogation.detail.title">Derogation</span> {{ derogation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.derogation.message">Message</span></dt>
+                <dd>
+                    <span>{{ derogation.message }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.derogation.affectation">Affectation</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.RequestAffectation.' + derogation.affectation }}">{{ derogation.affectation }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.derogation.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ derogation.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.derogation.request">Request</span></dt>
+                <dd>
+                    <div *ngIf="derogation.requestId">
+                        <a [routerLink]="['/request', derogation.requestId, 'view']">{{ derogation.requestId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/derogation', derogation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

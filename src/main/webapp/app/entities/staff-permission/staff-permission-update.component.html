@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-staff-permission-heading" jhiTranslate="tfsBackendApp.staffPermission.home.createOrEditLabel">Create or edit a Staff Permission</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.staffPermission.idRole" for="field_idRole">Id Role</label>
+                    <input type="number" class="form-control" name="idRole" id="field_idRole"
+                           formControlName="idRole"/>
+                    <div *ngIf="editForm.get('idRole')!.invalid && (editForm.get('idRole')!.dirty || editForm.get('idRole')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idRole')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idRole')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.staffPermission.idBu" for="field_idBu">Id Bu</label>
+                    <input type="number" class="form-control" name="idBu" id="field_idBu"
+                           formControlName="idBu"/>
+                    <div *ngIf="editForm.get('idBu')!.invalid && (editForm.get('idBu')!.dirty || editForm.get('idBu')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idBu')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idBu')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.staffPermission.action" for="field_action">Action</label>
+                    <select class="form-control" name="action" formControlName="action" id="field_action">
+                        <option value="MODIFYING">{{ 'tfsBackendApp.ActionPermission.MODIFYING' | translate }}</option>
+                        <option value="READING">{{ 'tfsBackendApp.ActionPermission.READING' | translate }}</option>
+                        <option value="ALL">{{ 'tfsBackendApp.ActionPermission.ALL' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('action')!.invalid && (editForm.get('action')!.dirty || editForm.get('action')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('action')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.staffPermission.scopePermission" for="field_scopePermission">Scope Permission</label>
+                    <select class="form-control" name="scopePermission" formControlName="scopePermission" id="field_scopePermission">
+                        <option value="ALL">{{ 'tfsBackendApp.ScopePermission.ALL' | translate }}</option>
+                        <option value="IN_AGENCY">{{ 'tfsBackendApp.ScopePermission.IN_AGENCY' | translate }}</option>
+                        <option value="ONLY_AFFECTED">{{ 'tfsBackendApp.ScopePermission.ONLY_AFFECTED' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('scopePermission')!.invalid && (editForm.get('scopePermission')!.dirty || editForm.get('scopePermission')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scopePermission')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.staffPermission.staffType" for="field_staffType">Staff Type</label>
+                    <select class="form-control" name="staffType" formControlName="staffType" id="field_staffType">
+                        <option value="ADVISOR_UNIT">{{ 'tfsBackendApp.StaffType.ADVISOR_UNIT' | translate }}</option>
+                        <option value="MARKET_UNIT">{{ 'tfsBackendApp.StaffType.MARKET_UNIT' | translate }}</option>
+                        <option value="AGENCY_UNIT">{{ 'tfsBackendApp.StaffType.AGENCY_UNIT' | translate }}</option>
+                        <option value="CONFORMITY_UNIT">{{ 'tfsBackendApp.StaffType.CONFORMITY_UNIT' | translate }}</option>
+                        <option value="REPOSITORY_UNIT">{{ 'tfsBackendApp.StaffType.REPOSITORY_UNIT' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

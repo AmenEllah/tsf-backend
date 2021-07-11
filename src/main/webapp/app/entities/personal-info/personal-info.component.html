@@ -1,0 +1,123 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.personalInfo.home.title">Personal Infos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-personal-info" [routerLink]="['/personal-info/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.personalInfo.home.createLabel">
+            Create a new Personal Info
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="personalInfos?.length === 0">
+        <span jhiTranslate="tfsBackendApp.personalInfo.home.notFound">No personalInfos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="personalInfos && personalInfos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="civility"><span jhiTranslate="tfsBackendApp.personalInfo.civility">Civility</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="firstName"><span jhiTranslate="tfsBackendApp.personalInfo.firstName">First Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastName"><span jhiTranslate="tfsBackendApp.personalInfo.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="tfsBackendApp.personalInfo.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nativeCountry"><span jhiTranslate="tfsBackendApp.personalInfo.nativeCountry">Native Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="birthday"><span jhiTranslate="tfsBackendApp.personalInfo.birthday">Birthday</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="clientABT"><span jhiTranslate="tfsBackendApp.personalInfo.clientABT">Client ABT</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rib"><span jhiTranslate="tfsBackendApp.personalInfo.rib">Rib</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nationality"><span jhiTranslate="tfsBackendApp.personalInfo.nationality">Nationality</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="secondNationality"><span jhiTranslate="tfsBackendApp.personalInfo.secondNationality">Second Nationality</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbrkids"><span jhiTranslate="tfsBackendApp.personalInfo.nbrkids">Nbrkids</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maritalStatus"><span jhiTranslate="tfsBackendApp.personalInfo.maritalStatus">Marital Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phone"><span jhiTranslate="tfsBackendApp.personalInfo.phone">Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="americanIndex"><span jhiTranslate="tfsBackendApp.personalInfo.americanIndex">American Index</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="accountNumber"><span jhiTranslate="tfsBackendApp.personalInfo.accountNumber">Account Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cin"><span jhiTranslate="tfsBackendApp.personalInfo.cin">Cin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="abroadResidancyProof"><span jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyProof">Abroad Residancy Proof</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="abroadResidancyNumber"><span jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyNumber">Abroad Residancy Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cinDeliveryDate"><span jhiTranslate="tfsBackendApp.personalInfo.cinDeliveryDate">Cin Delivery Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="abroadResidancyDeliveryDate"><span jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyDeliveryDate">Abroad Residancy Delivery Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="abroadResidancyExpirationDate"><span jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyExpirationDate">Abroad Residancy Expiration Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="requestId"><span jhiTranslate="tfsBackendApp.personalInfo.request">Request</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="agencyId"><span jhiTranslate="tfsBackendApp.personalInfo.agency">Agency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let personalInfo of personalInfos ;trackBy: trackId">
+                    <td><a [routerLink]="['/personal-info', personalInfo.id, 'view']">{{ personalInfo.id }}</a></td>
+                    <td jhiTranslate="{{ 'tfsBackendApp.Civility.' + personalInfo.civility }}">{{ personalInfo.civility }}</td>
+                    <td>{{ personalInfo.firstName }}</td>
+                    <td>{{ personalInfo.lastName }}</td>
+                    <td>{{ personalInfo.email }}</td>
+                    <td>{{ personalInfo.nativeCountry }}</td>
+                    <td>{{ personalInfo.birthday | date:'mediumDate' }}</td>
+                    <td>{{ personalInfo.clientABT }}</td>
+                    <td>{{ personalInfo.rib }}</td>
+                    <td>{{ personalInfo.nationality }}</td>
+                    <td>{{ personalInfo.secondNationality }}</td>
+                    <td>{{ personalInfo.nbrkids }}</td>
+                    <td>{{ personalInfo.maritalStatus }}</td>
+                    <td>{{ personalInfo.phone }}</td>
+                    <td>{{ personalInfo.americanIndex }}</td>
+                    <td>{{ personalInfo.accountNumber }}</td>
+                    <td>{{ personalInfo.cin }}</td>
+                    <td>{{ personalInfo.abroadResidancyProof }}</td>
+                    <td>{{ personalInfo.abroadResidancyNumber }}</td>
+                    <td>{{ personalInfo.cinDeliveryDate | date:'medium' }}</td>
+                    <td>{{ personalInfo.abroadResidancyDeliveryDate | date:'medium' }}</td>
+                    <td>{{ personalInfo.abroadResidancyExpirationDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="personalInfo.requestId">
+                            <a [routerLink]="['/request', personalInfo.requestId , 'view']" >{{ personalInfo.requestId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="personalInfo.agencyId">
+                            <a [routerLink]="['/agency', personalInfo.agencyId , 'view']" >{{ personalInfo.agencyId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/personal-info', personalInfo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/personal-info', personalInfo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(personalInfo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="personalInfos && personalInfos.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

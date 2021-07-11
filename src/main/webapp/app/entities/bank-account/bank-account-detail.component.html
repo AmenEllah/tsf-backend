@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bankAccount">
+            <h2><span jhiTranslate="tfsBackendApp.bankAccount.detail.title">Bank Account</span> {{ bankAccount.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.bankAccount.libelleFR">Libelle FR</span></dt>
+                <dd>
+                    <span>{{ bankAccount.libelleFR }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.bankAccount.libelleEN">Libelle EN</span></dt>
+                <dd>
+                    <span>{{ bankAccount.libelleEN }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.bankAccount.descriptionFR">Description FR</span></dt>
+                <dd>
+                    <span>{{ bankAccount.descriptionFR }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.bankAccount.descriptionEN">Description EN</span></dt>
+                <dd>
+                    <span>{{ bankAccount.descriptionEN }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bank-account', bankAccount.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

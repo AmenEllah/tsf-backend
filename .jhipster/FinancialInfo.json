@@ -1,0 +1,46 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "activity",
+      "otherEntityName": "activity",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "financialInfo"
+    },
+    {
+      "relationshipName": "category",
+      "otherEntityName": "category",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "financialInfo"
+    },
+    {
+      "relationshipName": "personalInfo",
+      "otherEntityName": "personalInfo",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "financialInfo"
+    },
+    {
+      "relationshipName": "monthlyNetIncome",
+      "otherEntityName": "monthlyNetIncome",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "financialInfo"
+    }
+  ],
+  "fields": [],
+  "changelogDate": "20201229141620",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "financial_info",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

@@ -1,0 +1,43 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numCin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "withAppelVisio",
+      "fieldType": "appelVisioStatus",
+      "fieldValues": "O,N"
+    },
+    {
+      "fieldName": "withCertif",
+      "fieldType": "withCertifStatus",
+      "fieldValues": "O,N"
+    },
+    {
+      "fieldName": "withSignature",
+      "fieldType": "withSignatureStatus",
+      "fieldValues": "O,N"
+    },
+    {
+      "fieldName": "dateAppelVisio",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20210504234530",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "subscriber_status",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

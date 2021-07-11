@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-document-heading" jhiTranslate="tfsBackendApp.document.home.createOrEditLabel">Create or edit a Document</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.document.typeDocument" for="field_typeDocument">Type Document</label>
+                    <input type="text" class="form-control" name="typeDocument" id="field_typeDocument"
+                           formControlName="typeDocument"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.document.nomFichier" for="field_nomFichier">Nom Fichier</label>
+                    <input type="text" class="form-control" name="nomFichier" id="field_nomFichier"
+                           formControlName="nomFichier"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.document.emplacement" for="field_emplacement">Emplacement</label>
+                    <input type="text" class="form-control" name="emplacement" id="field_emplacement"
+                           formControlName="emplacement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.document.idDossierSigned" for="field_idDossierSigned">Id Dossier Signed</label>
+                    <input type="text" class="form-control" name="idDossierSigned" id="field_idDossierSigned"
+                           formControlName="idDossierSigned"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.document.hasSigned" for="field_hasSigned">Has Signed</label>
+                    <input type="checkbox" class="form-control" name="hasSigned" id="field_hasSigned"
+                           formControlName="hasSigned"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.document.dateCreation" for="field_dateCreation">Date Creation</label>
+                    <div class="input-group">
+                        <input id="field_dateCreation" type="text" class="form-control" name="dateCreation" ngbDatepicker #dateCreationDp="ngbDatepicker" formControlName="dateCreation"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreationDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.document.dateUpdate" for="field_dateUpdate">Date Update</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdate" type="text" class="form-control" name="dateUpdate" ngbDatepicker #dateUpdateDp="ngbDatepicker" formControlName="dateUpdate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.document.request" for="field_request">Request</label>
+                    <select class="form-control" id="field_request" name="request" formControlName="requestId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requestOption.id" *ngFor="let requestOption of requests; trackBy: trackById">{{ requestOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

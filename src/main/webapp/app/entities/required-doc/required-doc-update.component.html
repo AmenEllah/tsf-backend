@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-required-doc-heading" jhiTranslate="tfsBackendApp.requiredDoc.home.createOrEditLabel">Create or edit a Required Doc</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDoc.label" for="field_label">Label</label>
+                    <input type="text" class="form-control" name="label" id="field_label"
+                           formControlName="label"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDoc.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDoc.numCIN" for="field_numCIN">Num CIN</label>
+                    <input type="text" class="form-control" name="numCIN" id="field_numCIN"
+                           formControlName="numCIN"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDoc.deliveryDateCin" for="field_deliveryDateCin">Delivery Date Cin</label>
+                    <div class="input-group">
+                        <input id="field_deliveryDateCin" type="text" class="form-control" name="deliveryDateCin" ngbDatepicker #deliveryDateCinDp="ngbDatepicker" formControlName="deliveryDateCin"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="deliveryDateCinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDoc.rectoCin" for="field_rectoCin">Recto Cin</label>
+                    <input type="text" class="form-control" name="rectoCin" id="field_rectoCin"
+                           formControlName="rectoCin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDoc.versoCin" for="field_versoCin">Verso Cin</label>
+                    <input type="text" class="form-control" name="versoCin" id="field_versoCin"
+                           formControlName="versoCin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDoc.fatca" for="field_fatca">Fatca</label>
+                    <input type="text" class="form-control" name="fatca" id="field_fatca"
+                           formControlName="fatca"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDoc.request" for="field_request">Request</label>
+                    <select class="form-control" id="field_request" name="request" formControlName="requestId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requestOption.id" *ngFor="let requestOption of requests; trackBy: trackById">{{ requestOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

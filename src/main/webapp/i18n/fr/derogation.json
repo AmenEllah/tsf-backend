@@ -1,0 +1,25 @@
+{
+  "tfsBackendApp": {
+    "derogation": {
+      "home": {
+        "title": "Derogations",
+        "createLabel": "Créer un nouveau Derogation",
+        "createOrEditLabel": "Créer ou éditer un Derogation",
+        "notFound": "Aucun Derogation trouvé"
+      },
+      "created": "Un nouveau Derogation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Derogation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Derogation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Derogation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Derogation"
+      },
+      "message": "Message",
+      "affectation": "Affectation",
+      "matricule": "Matricule",
+      "request": "Request"
+    }
+  }
+}

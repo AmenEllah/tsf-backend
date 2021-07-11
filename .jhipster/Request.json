@@ -1,0 +1,84 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "offer",
+      "otherEntityName": "offer",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "request"
+    },
+    {
+      "relationshipName": "personalInfo",
+      "otherEntityName": "personalInfo",
+      "relationshipType": "one-to-one",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "request"
+    },
+    {
+      "relationshipName": "document",
+      "otherEntityName": "document",
+      "relationshipType": "one-to-one",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "request"
+    },
+    {
+      "relationshipName": "requestBankAccount",
+      "otherEntityName": "requestBankAccount",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "request"
+    },
+    {
+      "relationshipName": "derogations",
+      "otherEntityName": "derogation",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "request"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "visioDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "sendingMailDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "step",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codeVerification",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amplitudeRef",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "requestState",
+      "fieldType": "StateRequest",
+      "fieldValues": "VISIO,TREATMENT,DIGIGO,SIGN"
+    },
+    {
+      "fieldName": "requestStatus",
+      "fieldType": "RequestStatus",
+      "fieldValues": "PENDING,ACCEPTED,REFUSED,AFFECTED,DEROGATED"
+    }
+  ],
+  "changelogDate": "20201229133612",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "request",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

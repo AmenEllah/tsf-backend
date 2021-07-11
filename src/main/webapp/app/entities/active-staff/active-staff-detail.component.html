@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="activeStaff">
+            <h2><span jhiTranslate="tfsBackendApp.activeStaff.detail.title">Active Staff</span> {{ activeStaff.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.activeStaff.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ activeStaff.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.activeStaff.idBu">Id Bu</span></dt>
+                <dd>
+                    <span>{{ activeStaff.idBu }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.activeStaff.idRole">Id Role</span></dt>
+                <dd>
+                    <span>{{ activeStaff.idRole }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.activeStaff.email">Email</span></dt>
+                <dd>
+                    <span>{{ activeStaff.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.activeStaff.idPoste">Id Poste</span></dt>
+                <dd>
+                    <span>{{ activeStaff.idPoste }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/active-staff', activeStaff.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

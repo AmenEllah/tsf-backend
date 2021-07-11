@@ -1,0 +1,10 @@
+{
+  "tfsBackendApp": {
+    "SenderProvider": {
+      "null": "",
+      "MIDDLEWARE": "MIDDLEWARE",
+      "SEND_GRID": "SEND_GRID",
+      "RANDOM": "RANDOM"
+    }
+  }
+}

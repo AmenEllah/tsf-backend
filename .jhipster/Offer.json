@@ -1,0 +1,43 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "request",
+      "otherEntityName": "request",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "offer"
+    },
+    {
+      "relationshipName": "detailOffer",
+      "otherEntityName": "detailOffer",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "offer"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20201229134657",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "offer",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

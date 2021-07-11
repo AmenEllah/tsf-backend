@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.otherResidencyFile.home.title">Other Residency Files</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-other-residency-file" [routerLink]="['/other-residency-file/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.otherResidencyFile.home.createLabel">
+            Create a new Other Residency File
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="otherResidencyFiles?.length === 0">
+        <span jhiTranslate="tfsBackendApp.otherResidencyFile.home.notFound">No otherResidencyFiles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="otherResidencyFiles && otherResidencyFiles.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.otherResidencyFile.path">Path</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.otherResidencyFile.requiredDoc">Required Doc</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.otherResidencyFile.residencyDocument">Residency Document</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let otherResidencyFile of otherResidencyFiles ;trackBy: trackId">
+                    <td><a [routerLink]="['/other-residency-file', otherResidencyFile.id, 'view']">{{ otherResidencyFile.id }}</a></td>
+                    <td>{{ otherResidencyFile.path }}</td>
+                    <td>
+                        <div *ngIf="otherResidencyFile.requiredDocId">
+                            <a [routerLink]="['/required-doc', otherResidencyFile.requiredDocId , 'view']" >{{ otherResidencyFile.requiredDocId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="otherResidencyFile.residencyDocumentId">
+                            <a [routerLink]="['/residency-document', otherResidencyFile.residencyDocumentId , 'view']" >{{ otherResidencyFile.residencyDocumentId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/other-residency-file', otherResidencyFile.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/other-residency-file', otherResidencyFile.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(otherResidencyFile)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="botScan">
+            <h2><span jhiTranslate="tfsBackendApp.botScan.detail.title">Bot Scan</span> {{ botScan.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.botScan.ref_demande">Ref Demande</span></dt>
+                <dd>
+                    <span>{{ botScan.ref_demande }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.botScan.cliDelta">Cli Delta</span></dt>
+                <dd>
+                    <span>{{ botScan.cliDelta }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.botScan.signature">Signature</span></dt>
+                <dd>
+                    <span>{{ botScan.signature }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.botScan.compte">Compte</span></dt>
+                <dd>
+                    <span>{{ botScan.compte }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bot-scan', botScan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

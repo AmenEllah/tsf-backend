@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="requiredDoc">
+            <h2><span jhiTranslate="tfsBackendApp.requiredDoc.detail.title">Required Doc</span> {{ requiredDoc.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.requiredDoc.label">Label</span></dt>
+                <dd>
+                    <span>{{ requiredDoc.label }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDoc.type">Type</span></dt>
+                <dd>
+                    <span>{{ requiredDoc.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDoc.numCIN">Num CIN</span></dt>
+                <dd>
+                    <span>{{ requiredDoc.numCIN }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDoc.deliveryDateCin">Delivery Date Cin</span></dt>
+                <dd>
+                    <span>{{ requiredDoc.deliveryDateCin }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDoc.rectoCin">Recto Cin</span></dt>
+                <dd>
+                    <span>{{ requiredDoc.rectoCin }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDoc.versoCin">Verso Cin</span></dt>
+                <dd>
+                    <span>{{ requiredDoc.versoCin }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDoc.fatca">Fatca</span></dt>
+                <dd>
+                    <span>{{ requiredDoc.fatca }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDoc.request">Request</span></dt>
+                <dd>
+                    <div *ngIf="requiredDoc.requestId">
+                        <a [routerLink]="['/request', requiredDoc.requestId, 'view']">{{ requiredDoc.requestId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/required-doc', requiredDoc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

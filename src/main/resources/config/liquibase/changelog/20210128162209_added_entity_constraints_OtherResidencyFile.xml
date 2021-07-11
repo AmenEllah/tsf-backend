@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity OtherResidencyFile.
+    -->
+    <changeSet id="20210128162209-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="required_doc_id"
+                                 baseTableName="other_res_file"
+                                 constraintName="other_res_file_required_doc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="required_doc"/>
+
+        <addForeignKeyConstraint baseColumnNames="residency_document_id"
+                                 baseTableName="other_res_file"
+                                 constraintName="other_res_file_residency_do_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resid_document"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity AdressInfo.
+    -->
+    <changeSet id="20201229135246-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="personal_info_id"
+                                 baseTableName="adress_info"
+                                 constraintName="adress_info_personal_info_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personal_info"/>
+
+    </changeSet>
+</databaseChangeLog>

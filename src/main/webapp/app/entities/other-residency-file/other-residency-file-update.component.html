@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-other-residency-file-heading" jhiTranslate="tfsBackendApp.otherResidencyFile.home.createOrEditLabel">Create or edit a Other Residency File</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.otherResidencyFile.path" for="field_path">Path</label>
+                    <input type="text" class="form-control" name="path" id="field_path"
+                           formControlName="path"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.otherResidencyFile.requiredDoc" for="field_requiredDoc">Required Doc</label>
+                    <select class="form-control" id="field_requiredDoc" name="requiredDoc" formControlName="requiredDocId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requiredDocOption.id" *ngFor="let requiredDocOption of requireddocs; trackBy: trackById">{{ requiredDocOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.otherResidencyFile.residencyDocument" for="field_residencyDocument">Residency Document</label>
+                    <select class="form-control" id="field_residencyDocument" name="residencyDocument" formControlName="residencyDocumentId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="residencyDocumentOption.id" *ngFor="let residencyDocumentOption of residencydocuments; trackBy: trackById">{{ residencyDocumentOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

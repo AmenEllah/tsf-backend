@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="requiredDocResidency">
+            <h2><span jhiTranslate="tfsBackendApp.requiredDocResidency.detail.title">Required Doc Residency</span> {{ requiredDocResidency.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.type">Type</span></dt>
+                <dd>
+                    <span>{{ requiredDocResidency.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.num">Num</span></dt>
+                <dd>
+                    <span>{{ requiredDocResidency.num }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.deliveryDate">Delivery Date</span></dt>
+                <dd>
+                    <span>{{ requiredDocResidency.deliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.experationDate">Experation Date</span></dt>
+                <dd>
+                    <span>{{ requiredDocResidency.experationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.illimitedExperationDate">Illimited Experation Date</span></dt>
+                <dd>
+                    <span>{{ requiredDocResidency.illimitedExperationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.residencyRecto">Residency Recto</span></dt>
+                <dd>
+                    <span>{{ requiredDocResidency.residencyRecto }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.residencyVerso">Residency Verso</span></dt>
+                <dd>
+                    <span>{{ requiredDocResidency.residencyVerso }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.requiredDoc">Required Doc</span></dt>
+                <dd>
+                    <div *ngIf="requiredDocResidency.requiredDocId">
+                        <a [routerLink]="['/required-doc', requiredDocResidency.requiredDocId, 'view']">{{ requiredDocResidency.requiredDocId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.requiredDocResidency.residencyDocument">Residency Document</span></dt>
+                <dd>
+                    <div *ngIf="requiredDocResidency.residencyDocumentId">
+                        <a [routerLink]="['/residency-document', requiredDocResidency.residencyDocumentId, 'view']">{{ requiredDocResidency.residencyDocumentId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/required-doc-residency', requiredDocResidency.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

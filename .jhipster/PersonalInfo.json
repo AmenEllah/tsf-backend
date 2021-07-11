@@ -1,0 +1,133 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "request",
+      "otherEntityName": "request",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "personalInfo"
+    },
+    {
+      "relationshipName": "adressInfo",
+      "otherEntityName": "adressInfo",
+      "relationshipType": "one-to-one",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "personalInfo"
+    },
+    {
+      "relationshipName": "agency",
+      "otherEntityName": "agency",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "personalInfo"
+    },
+    {
+      "relationshipName": "financialInfo",
+      "otherEntityName": "financialInfo",
+      "relationshipType": "one-to-one",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "personalInfo"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "civility",
+      "fieldType": "Civility",
+      "fieldValues": "MADAME,MONSIEUR"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nativeCountry",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthday",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "clientABT",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "rib",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nationality",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "secondNationality",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbrkids",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maritalStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "americanIndex",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "abroadResidancyProof",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "abroadResidancyNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cinDeliveryDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "abroadResidancyDeliveryDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "abroadResidancyExpirationDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "changelogDate": "20201229142809",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "personal_info",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

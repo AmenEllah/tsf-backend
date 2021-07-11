@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="compte">
+            <h2><span jhiTranslate="tfsBackendApp.compte.detail.title">Compte</span> {{ compte.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.compte.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ compte.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.compte.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ compte.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.compte.dateDeNaissance">Date De Naissance</span></dt>
+                <dd>
+                    <span>{{ compte.dateDeNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.compte.email">Email</span></dt>
+                <dd>
+                    <span>{{ compte.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.compte.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ compte.telephone }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/compte', compte.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

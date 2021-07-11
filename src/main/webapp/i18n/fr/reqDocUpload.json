@@ -1,0 +1,27 @@
+{
+  "tfsBackendApp": {
+    "reqDocUpload": {
+      "home": {
+        "title": "ReqDocUploads",
+        "createLabel": "Créer un nouveau Req Doc Upload",
+        "createOrEditLabel": "Créer ou éditer un Req Doc Upload",
+        "notFound": "Aucun Req Doc Upload trouvé"
+      },
+      "created": "Un nouveau Req Doc Upload a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Req Doc Upload avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Req Doc Upload avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Req Doc Upload {{ id }} ?"
+      },
+      "detail": {
+        "title": "Req Doc Upload"
+      },
+      "pathDoc": "Path Doc",
+      "typeDoc": "Type Doc",
+      "uploadedAt": "Uploaded At",
+      "updatedAt": "Updated At",
+      "docStatus": "Doc Status",
+      "request": "Request"
+    }
+  }
+}

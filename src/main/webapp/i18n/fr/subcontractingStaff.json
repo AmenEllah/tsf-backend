@@ -1,0 +1,26 @@
+{
+  "tfsBackendApp": {
+    "subcontractingStaff": {
+      "home": {
+        "title": "SubcontractingStaffs",
+        "createLabel": "Créer un nouveau Subcontracting Staff",
+        "createOrEditLabel": "Créer ou éditer un Subcontracting Staff",
+        "notFound": "Aucun Subcontracting Staff trouvé"
+      },
+      "created": "Un nouveau Subcontracting Staff a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Subcontracting Staff avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Subcontracting Staff avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Subcontracting Staff {{ id }} ?"
+      },
+      "detail": {
+        "title": "Subcontracting Staff"
+      },
+      "matricule": "Matricule",
+      "idBu": "Id Bu",
+      "idRole": "Id Role",
+      "email": "Email",
+      "idPoste": "Id Poste"
+    }
+  }
+}

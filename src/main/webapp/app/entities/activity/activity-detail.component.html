@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="activity">
+            <h2><span jhiTranslate="tfsBackendApp.activity.detail.title">Activity</span> {{ activity.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.activity.activityNameFR">Activity Name FR</span></dt>
+                <dd>
+                    <span>{{ activity.activityNameFR }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.activity.activityNameEN">Activity Name EN</span></dt>
+                <dd>
+                    <span>{{ activity.activityNameEN }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/activity', activity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

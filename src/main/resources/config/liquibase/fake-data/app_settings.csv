@@ -1,0 +1,4 @@
+id;mail_sender_provider;signer_provider
+1;MIDDLEWARE;SIGN_ATTIJARI
+2;SEND_GRID;NG_SIGN
+3;RANDOM;SIGN_ATTIJARI

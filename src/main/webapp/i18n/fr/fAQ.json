@@ -1,0 +1,23 @@
+{
+  "tfsBackendApp": {
+    "fAQ": {
+      "home": {
+        "title": "FAQS",
+        "createLabel": "Créer un nouveau FAQ",
+        "createOrEditLabel": "Créer ou éditer un FAQ",
+        "notFound": "Aucun FAQ trouvé"
+      },
+      "created": "Un nouveau FAQ a été créé avec l'identifiant {{ param }}",
+      "updated": "Le FAQ avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le FAQ avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le FAQ {{ id }} ?"
+      },
+      "detail": {
+        "title": "FAQ"
+      },
+      "question": "Question",
+      "answer": "Answer"
+    }
+  }
+}

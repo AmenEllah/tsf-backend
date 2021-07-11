@@ -1,0 +1,12 @@
+version: '2'
+services:
+  tfs_backend-app:
+    image: tfs_backend
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@tfs_backend-oracle:1521:tfs_backend
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 9090:9090

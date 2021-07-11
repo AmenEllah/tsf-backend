@@ -1,0 +1,25 @@
+{
+  "tfsBackendApp": {
+    "adresse": {
+      "home": {
+        "title": "Adresses",
+        "createLabel": "Créer un nouveau Adresse",
+        "createOrEditLabel": "Créer ou éditer un Adresse",
+        "notFound": "Aucun Adresse trouvé"
+      },
+      "created": "Un nouveau Adresse a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Adresse avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Adresse avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Adresse {{ id }} ?"
+      },
+      "detail": {
+        "title": "Adresse"
+      },
+      "rue": "Rue",
+      "codePostal": "Code Postal",
+      "ville": "Ville",
+      "pays": "Pays"
+    }
+  }
+}

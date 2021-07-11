@@ -1,0 +1,24 @@
+{
+  "tfsBackendApp": {
+    "otherRevenuFile": {
+      "home": {
+        "title": "OtherRevenuFiles",
+        "createLabel": "Créer un nouveau Other Revenu File",
+        "createOrEditLabel": "Créer ou éditer un Other Revenu File",
+        "notFound": "Aucun Other Revenu File trouvé"
+      },
+      "created": "Un nouveau Other Revenu File a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Other Revenu File avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Other Revenu File avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Other Revenu File {{ id }} ?"
+      },
+      "detail": {
+        "title": "Other Revenu File"
+      },
+      "path": "Path",
+      "requiredDoc": "Required Doc",
+      "justifRevenu": "Justif Revenu"
+    }
+  }
+}

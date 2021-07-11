@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reqDocUpload">
+            <h2><span jhiTranslate="tfsBackendApp.reqDocUpload.detail.title">Req Doc Upload</span> {{ reqDocUpload.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.reqDocUpload.pathDoc">Path Doc</span></dt>
+                <dd>
+                    <span>{{ reqDocUpload.pathDoc }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.reqDocUpload.typeDoc">Type Doc</span></dt>
+                <dd>
+                    <span>{{ reqDocUpload.typeDoc }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.reqDocUpload.uploadedAt">Uploaded At</span></dt>
+                <dd>
+                    <span>{{ reqDocUpload.uploadedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.reqDocUpload.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{ reqDocUpload.updatedAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.reqDocUpload.docStatus">Doc Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.DocStatus.' + reqDocUpload.docStatus }}">{{ reqDocUpload.docStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.reqDocUpload.request">Request</span></dt>
+                <dd>
+                    <div *ngIf="reqDocUpload.request">
+                        <a [routerLink]="['/request', reqDocUpload.request?.id, 'view']">{{ reqDocUpload.request?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/req-doc-upload', reqDocUpload.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

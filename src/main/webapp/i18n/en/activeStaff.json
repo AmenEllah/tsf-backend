@@ -1,0 +1,26 @@
+{
+  "tfsBackendApp": {
+    "activeStaff": {
+      "home": {
+        "title": "Active Staffs",
+        "createLabel": "Create a new Active Staff",
+        "createOrEditLabel": "Create or edit a Active Staff",
+        "notFound": "No Active Staffs found"
+      },
+      "created": "A new Active Staff is created with identifier {{ param }}",
+      "updated": "A Active Staff is updated with identifier {{ param }}",
+      "deleted": "A Active Staff is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Active Staff {{ id }}?"
+      },
+      "detail": {
+        "title": "Active Staff"
+      },
+      "matricule": "Matricule",
+      "idBu": "Id Bu",
+      "idRole": "Id Role",
+      "email": "Email",
+      "idPoste": "Id Poste"
+    }
+  }
+}

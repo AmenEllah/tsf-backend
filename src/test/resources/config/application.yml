@@ -1,0 +1,147 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration is used for unit/integration tests.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+spring:
+  profiles:
+    # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
+    #active: testcontainers
+  application:
+    name: tsf_backend
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:tsf_backend;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    name:
+    username:
+    password:
+    hikari:
+      auto-commit: false
+  jackson:
+    serialization:
+      write-durations-as-timestamps: false
+  jpa:
+    database-platform: io.github.jhipster.domain.util.FixedH2Dialect
+    open-in-view: false
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.hbm2ddl.auto: validate
+      hibernate.jdbc.time_zone: UTC
+  liquibase:
+    contexts: test
+  mail:
+    host: localhost
+  main:
+    allow-bean-definition-overriding: true
+  messages:
+    basename: i18n/messages
+  task:
+    execution:
+      thread-name-prefix: tsf-backend-task-
+      pool:
+        core-size: 1
+        max-size: 50
+        queue-capacity: 10000
+    scheduling:
+      thread-name-prefix: tsf-backend-scheduling-
+      pool:
+        size: 1
+  thymeleaf:
+    mode: HTML
+
+server:
+  port: 10344
+  address: localhost
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+  clientApp:
+    name: 'tsfBackendApp'
+  logging:
+    # To test json console appender
+    use-json-format: false
+    logstash:
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+  mail:
+    from: test@localhost
+    base-url: http://127.0.0.1:8080
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
+        base64-secret: MDNkNDUzNDM3Y2MyMzBhNDk0NzRiMjM3NWJiMmZkOGU1OTMzNDg2NTkxMDQyOGY0MWM1MTIyZjliZTIyNTI0OWNmNjVmZTMwOWE2MjcwMmEyZjg0ZDczMWFhMjRmNmI4MDAyMGM0MjI0YTE3YTdhMTQxYTg2ODZmZGU4YjM4YTc=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+  metrics:
+    logs: # Reports metrics in the logs
+      enabled: true
+      report-frequency: 60 # in seconds
+
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
+ftp:
+  host: 41.231.54.78
+  port: 22
+  user: tsf
+  password: attijari
+middleware:
+  protocol: http://
+  host: 172.28.11.33
+  port: 7080
+  username: a46bfba74e680149ec4803bafd11c7f4
+  password: 0d479040d31cc9c7745e4724f969ddfa
+  uri:
+    systeme: ABTServiceMiddleware/systeme
+    delta: ABTServiceMiddleware/delta
+    idc: ABTServiceMiddleware/idc
+  authorization: Basic Mzk4YTczODkyZDBlOTNiYjg4YmY3MTQ3NjdmODk5MmE6OGVkMjkzOTEwNGI5N2RjZThmYmNkNzY0MzI0NWExZmY=
+java:
+  naming:
+    factory:
+      initial: com.sun.jndi.ldap.LdapCtxFactory
+    security:
+      authentication: simple
+      principal: bank-sud\
+    referral: follow
+    provider:
+      url: ldap://172.28.14.97:389
+deblocage:
+  path: /TSF/deblocage/
+upload:
+  path: /TSF/uploads/

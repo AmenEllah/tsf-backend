@@ -1,0 +1,10 @@
+{
+  "tfsBackendApp": {
+    "ActionPermission": {
+      "null": "",
+      "MODIFYING": "MODIFYING",
+      "READING": "READING",
+      "ALL": "ALL"
+    }
+  }
+}

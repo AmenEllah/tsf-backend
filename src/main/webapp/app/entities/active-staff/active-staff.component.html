@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.activeStaff.home.title">Active Staffs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-active-staff" [routerLink]="['/active-staff/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.activeStaff.home.createLabel">
+            Create a new Active Staff
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="activeStaffs?.length === 0">
+        <span jhiTranslate="tfsBackendApp.activeStaff.home.notFound">No activeStaffs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="activeStaffs && activeStaffs.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matricule"><span jhiTranslate="tfsBackendApp.activeStaff.matricule">Matricule</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idBu"><span jhiTranslate="tfsBackendApp.activeStaff.idBu">Id Bu</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idRole"><span jhiTranslate="tfsBackendApp.activeStaff.idRole">Id Role</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="tfsBackendApp.activeStaff.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idPoste"><span jhiTranslate="tfsBackendApp.activeStaff.idPoste">Id Poste</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let activeStaff of activeStaffs ;trackBy: trackId">
+                    <td><a [routerLink]="['/active-staff', activeStaff.id, 'view']">{{ activeStaff.id }}</a></td>
+                    <td>{{ activeStaff.matricule }}</td>
+                    <td>{{ activeStaff.idBu }}</td>
+                    <td>{{ activeStaff.idRole }}</td>
+                    <td>{{ activeStaff.email }}</td>
+                    <td>{{ activeStaff.idPoste }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/active-staff', activeStaff.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/active-staff', activeStaff.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(activeStaff)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="activeStaffs && activeStaffs.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

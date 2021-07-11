@@ -1,0 +1,37 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "request",
+      "otherEntityName": "request",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "derogation"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "message",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "affectation",
+      "fieldType": "RequestAffectation",
+      "fieldValues": "CONFORMITY_UNIT,REPOSITORY_UNIT"
+    },
+    {
+      "fieldName": "matricule",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20210329090214",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "derogation",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

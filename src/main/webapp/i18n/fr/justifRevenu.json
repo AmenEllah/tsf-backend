@@ -1,0 +1,24 @@
+{
+  "tfsBackendApp": {
+    "justifRevenu": {
+      "home": {
+        "title": "JustifRevenus",
+        "createLabel": "Créer un nouveau Justif Revenu",
+        "createOrEditLabel": "Créer ou éditer un Justif Revenu",
+        "notFound": "Aucun Justif Revenu trouvé"
+      },
+      "created": "Un nouveau Justif Revenu a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Justif Revenu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Justif Revenu avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Justif Revenu {{ id }} ?"
+      },
+      "detail": {
+        "title": "Justif Revenu"
+      },
+      "labelEN": "Label EN",
+      "labelFR": "Label FR",
+      "otherRevenuFile": "Other Revenu File"
+    }
+  }
+}

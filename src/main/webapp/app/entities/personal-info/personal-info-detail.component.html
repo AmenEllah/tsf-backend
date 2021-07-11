@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="personalInfo">
+            <h2><span jhiTranslate="tfsBackendApp.personalInfo.detail.title">Personal Info</span> {{ personalInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.civility">Civility</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.Civility.' + personalInfo.civility }}">{{ personalInfo.civility }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ personalInfo.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ personalInfo.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.email">Email</span></dt>
+                <dd>
+                    <span>{{ personalInfo.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.nativeCountry">Native Country</span></dt>
+                <dd>
+                    <span>{{ personalInfo.nativeCountry }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.birthday">Birthday</span></dt>
+                <dd>
+                    <span>{{ personalInfo.birthday }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.clientABT">Client ABT</span></dt>
+                <dd>
+                    <span>{{ personalInfo.clientABT }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.rib">Rib</span></dt>
+                <dd>
+                    <span>{{ personalInfo.rib }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.nationality">Nationality</span></dt>
+                <dd>
+                    <span>{{ personalInfo.nationality }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.secondNationality">Second Nationality</span></dt>
+                <dd>
+                    <span>{{ personalInfo.secondNationality }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.nbrkids">Nbrkids</span></dt>
+                <dd>
+                    <span>{{ personalInfo.nbrkids }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.maritalStatus">Marital Status</span></dt>
+                <dd>
+                    <span>{{ personalInfo.maritalStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ personalInfo.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.americanIndex">American Index</span></dt>
+                <dd>
+                    <span>{{ personalInfo.americanIndex }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.accountNumber">Account Number</span></dt>
+                <dd>
+                    <span>{{ personalInfo.accountNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.cin">Cin</span></dt>
+                <dd>
+                    <span>{{ personalInfo.cin }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyProof">Abroad Residancy Proof</span></dt>
+                <dd>
+                    <span>{{ personalInfo.abroadResidancyProof }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyNumber">Abroad Residancy Number</span></dt>
+                <dd>
+                    <span>{{ personalInfo.abroadResidancyNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.cinDeliveryDate">Cin Delivery Date</span></dt>
+                <dd>
+                    <span>{{ personalInfo.cinDeliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyDeliveryDate">Abroad Residancy Delivery Date</span></dt>
+                <dd>
+                    <span>{{ personalInfo.abroadResidancyDeliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.abroadResidancyExpirationDate">Abroad Residancy Expiration Date</span></dt>
+                <dd>
+                    <span>{{ personalInfo.abroadResidancyExpirationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.request">Request</span></dt>
+                <dd>
+                    <div *ngIf="personalInfo.requestId">
+                        <a [routerLink]="['/request', personalInfo.requestId, 'view']">{{ personalInfo.requestId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.personalInfo.agency">Agency</span></dt>
+                <dd>
+                    <div *ngIf="personalInfo.agencyId">
+                        <a [routerLink]="['/agency', personalInfo.agencyId, 'view']">{{ personalInfo.agencyId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/personal-info', personalInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

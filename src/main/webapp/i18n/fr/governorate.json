@@ -1,0 +1,23 @@
+{
+  "tfsBackendApp": {
+    "governorate": {
+      "home": {
+        "title": "Governorates",
+        "createLabel": "Créer un nouveau Governorate",
+        "createOrEditLabel": "Créer ou éditer un Governorate",
+        "notFound": "Aucun Governorate trouvé"
+      },
+      "created": "Un nouveau Governorate a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Governorate avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Governorate avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Governorate {{ id }} ?"
+      },
+      "detail": {
+        "title": "Governorate"
+      },
+      "name": "Name",
+      "municipality": "Municipality"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity PersonalInfo.
+    -->
+    <changeSet id="20201229142809-1" author="jhipster">
+        <createTable tableName="personal_info">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="civility" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="native_country" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="birthday" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="client_abt" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="rib" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nationality" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="second_nationality" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nbrkids" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="marital_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="american_index" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="account_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cin" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="abroad_residancy_proof" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="abroad_residancy_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cin_delivery_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="abroad_residancy_delivery_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="abroad_residancy_expiration_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="request_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_personal_info_request_id" />
+            </column>
+            <column name="agency_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="personal_info" columnName="cin_delivery_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="personal_info" columnName="abroad_residancy_delivery_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="personal_info" columnName="abroad_residancy_expiration_date" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20201229142809-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20201229142809-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/personal_info.csv"
+                  separator=";"
+                  tableName="personal_info">
+            <column name="id" type="numeric"/>
+            <column name="civility" type="string"/>
+            <column name="first_name" type="string"/>
+            <column name="last_name" type="string"/>
+            <column name="email" type="string"/>
+            <column name="native_country" type="string"/>
+            <column name="birthday" type="date"/>
+            <column name="client_abt" type="boolean"/>
+            <column name="rib" type="string"/>
+            <column name="nationality" type="string"/>
+            <column name="second_nationality" type="string"/>
+            <column name="nbrkids" type="numeric"/>
+            <column name="marital_status" type="string"/>
+            <column name="phone" type="string"/>
+            <column name="american_index" type="boolean"/>
+            <column name="account_number" type="string"/>
+            <column name="cin" type="string"/>
+            <column name="abroad_residancy_proof" type="string"/>
+            <column name="abroad_residancy_number" type="string"/>
+            <column name="cin_delivery_date" type="datetime"/>
+            <column name="abroad_residancy_delivery_date" type="datetime"/>
+            <column name="abroad_residancy_expiration_date" type="datetime"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

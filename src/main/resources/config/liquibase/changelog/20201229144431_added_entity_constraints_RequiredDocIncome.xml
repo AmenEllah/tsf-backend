@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity RequiredDocIncome.
+    -->
+    <changeSet id="20201229144431-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="required_doc_id"
+                                 baseTableName="req_doc_income"
+                                 constraintName="req_doc_income_required_doc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="required_doc"/>
+
+    </changeSet>
+</databaseChangeLog>

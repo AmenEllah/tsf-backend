@@ -1,0 +1,11 @@
+{
+  "tfsBackendApp": {
+    "DocStatus": {
+      "null": "",
+      "VALID": "VALID",
+      "INVALID": "INVALID",
+      "COMPLETED": "COMPLETED",
+      "PENDING": "PENDING"
+    }
+  }
+}

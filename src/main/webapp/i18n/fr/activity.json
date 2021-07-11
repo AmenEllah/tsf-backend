@@ -1,0 +1,24 @@
+{
+  "tfsBackendApp": {
+    "activity": {
+      "home": {
+        "title": "Activities",
+        "createLabel": "Créer un nouveau Activity",
+        "createOrEditLabel": "Créer ou éditer un Activity",
+        "notFound": "Aucun Activity trouvé"
+      },
+      "created": "Un nouveau Activity a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Activity avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Activity avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Activity {{ id }} ?"
+      },
+      "detail": {
+        "title": "Activity"
+      },
+      "activityNameFR": "Activity Name FR",
+      "activityNameEN": "Activity Name EN",
+      "financialInfo": "Financial Info"
+    }
+  }
+}

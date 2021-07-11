@@ -1,0 +1,32 @@
+{
+  "tfsBackendApp": {
+    "supplyMatrix": {
+      "home": {
+        "title": "Supply Matrices",
+        "createLabel": "Create a new Supply Matrix",
+        "createOrEditLabel": "Create or edit a Supply Matrix",
+        "notFound": "No Supply Matrices found"
+      },
+      "created": "A new Supply Matrix is created with identifier {{ param }}",
+      "updated": "A Supply Matrix is updated with identifier {{ param }}",
+      "deleted": "A Supply Matrix is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Supply Matrix {{ id }}?"
+      },
+      "detail": {
+        "title": "Supply Matrix"
+      },
+      "categoryId": "Category Id",
+      "incomeTypeCode": "Income Type Code",
+      "incomeType": "Income Type",
+      "monthlyIncomeId": "Monthly Income Id",
+      "marketCode": "Market Code",
+      "market": "Market",
+      "segmentCode": "Segment Code",
+      "segment": "Segment",
+      "activityId": "Activity Id",
+      "professionCode": "Profession Code",
+      "profession": "Profession"
+    }
+  }
+}

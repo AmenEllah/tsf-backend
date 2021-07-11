@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.otherRevenuFile.home.title">Other Revenu Files</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-other-revenu-file" [routerLink]="['/other-revenu-file/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.otherRevenuFile.home.createLabel">
+            Create a new Other Revenu File
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="otherRevenuFiles?.length === 0">
+        <span jhiTranslate="tfsBackendApp.otherRevenuFile.home.notFound">No otherRevenuFiles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="otherRevenuFiles && otherRevenuFiles.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.otherRevenuFile.path">Path</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.otherRevenuFile.requiredDoc">Required Doc</span></th>
+                    <th scope="col" ><span jhiTranslate="tfsBackendApp.otherRevenuFile.justifRevenu">Justif Revenu</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let otherRevenuFile of otherRevenuFiles ;trackBy: trackId">
+                    <td><a [routerLink]="['/other-revenu-file', otherRevenuFile.id, 'view']">{{ otherRevenuFile.id }}</a></td>
+                    <td>{{ otherRevenuFile.path }}</td>
+                    <td>
+                        <div *ngIf="otherRevenuFile.requiredDocId">
+                            <a [routerLink]="['/required-doc', otherRevenuFile.requiredDocId , 'view']" >{{ otherRevenuFile.requiredDocId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="otherRevenuFile.justifRevenuId">
+                            <a [routerLink]="['/justif-revenu', otherRevenuFile.justifRevenuId , 'view']" >{{ otherRevenuFile.justifRevenuId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/other-revenu-file', otherRevenuFile.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/other-revenu-file', otherRevenuFile.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(otherRevenuFile)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

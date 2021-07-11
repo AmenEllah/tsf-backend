@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.financialInfo.home.title">Financial Infos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-financial-info" [routerLink]="['/financial-info/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.financialInfo.home.createLabel">
+            Create a new Financial Info
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="financialInfos?.length === 0">
+        <span jhiTranslate="tfsBackendApp.financialInfo.home.notFound">No financialInfos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="financialInfos && financialInfos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activityId"><span jhiTranslate="tfsBackendApp.financialInfo.activity">Activity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="tfsBackendApp.financialInfo.category">Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personalInfoId"><span jhiTranslate="tfsBackendApp.financialInfo.personalInfo">Personal Info</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="monthlyNetIncomeId"><span jhiTranslate="tfsBackendApp.financialInfo.monthlyNetIncome">Monthly Net Income</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let financialInfo of financialInfos ;trackBy: trackId">
+                    <td><a [routerLink]="['/financial-info', financialInfo.id, 'view']">{{ financialInfo.id }}</a></td>
+                    <td>
+                        <div *ngIf="financialInfo.activityId">
+                            <a [routerLink]="['/activity', financialInfo.activityId , 'view']" >{{ financialInfo.activityId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="financialInfo.categoryId">
+                            <a [routerLink]="['/category', financialInfo.categoryId , 'view']" >{{ financialInfo.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="financialInfo.personalInfoId">
+                            <a [routerLink]="['/personal-info', financialInfo.personalInfoId , 'view']" >{{ financialInfo.personalInfoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="financialInfo.monthlyNetIncomeId">
+                            <a [routerLink]="['/monthly-net-income', financialInfo.monthlyNetIncomeId , 'view']" >{{ financialInfo.monthlyNetIncomeId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/financial-info', financialInfo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/financial-info', financialInfo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(financialInfo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="financialInfos && financialInfos.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

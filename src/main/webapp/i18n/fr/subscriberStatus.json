@@ -1,0 +1,27 @@
+{
+  "tfsBackendApp": {
+    "subscriberStatus": {
+      "home": {
+        "title": "SubscriberStatuses",
+        "createLabel": "Créer un nouveau Subscriber Status",
+        "createOrEditLabel": "Créer ou éditer un Subscriber Status",
+        "notFound": "Aucun Subscriber Status trouvé"
+      },
+      "created": "Un nouveau Subscriber Status a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Subscriber Status avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Subscriber Status avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Subscriber Status {{ id }} ?"
+      },
+      "detail": {
+        "title": "Subscriber Status"
+      },
+      "email": "Email",
+      "numCin": "Num Cin",
+      "withAppelVisio": "With Appel Visio",
+      "withCertif": "With Certif",
+      "withSignature": "With Signature",
+      "dateAppelVisio": "Date Appel Visio"
+    }
+  }
+}

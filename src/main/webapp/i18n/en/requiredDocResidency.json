@@ -1,0 +1,30 @@
+{
+  "tfsBackendApp": {
+    "requiredDocResidency": {
+      "home": {
+        "title": "Required Doc Residencies",
+        "createLabel": "Create a new Required Doc Residency",
+        "createOrEditLabel": "Create or edit a Required Doc Residency",
+        "notFound": "No Required Doc Residencies found"
+      },
+      "created": "A new Required Doc Residency is created with identifier {{ param }}",
+      "updated": "A Required Doc Residency is updated with identifier {{ param }}",
+      "deleted": "A Required Doc Residency is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Required Doc Residency {{ id }}?"
+      },
+      "detail": {
+        "title": "Required Doc Residency"
+      },
+      "type": "Type",
+      "num": "Num",
+      "deliveryDate": "Delivery Date",
+      "experationDate": "Experation Date",
+      "illimitedExperationDate": "Illimited Experation Date",
+      "residencyRecto": "Residency Recto",
+      "residencyVerso": "Residency Verso",
+      "requiredDoc": "Required Doc",
+      "residencyDocument": "Residency Document"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "tfsBackendApp": {
+    "detailOffer": {
+      "home": {
+        "title": "DetailOffers",
+        "createLabel": "Créer un nouveau Detail Offer",
+        "createOrEditLabel": "Créer ou éditer un Detail Offer",
+        "notFound": "Aucun Detail Offer trouvé"
+      },
+      "created": "Un nouveau Detail Offer a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Detail Offer avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Detail Offer avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Detail Offer {{ id }} ?"
+      },
+      "detail": {
+        "title": "Detail Offer"
+      },
+      "description": "Description",
+      "offer": "Offer"
+    }
+  }
+}

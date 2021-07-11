@@ -1,0 +1,9 @@
+{
+  "tfsBackendApp": {
+    "RequestAffectation": {
+      "null": "",
+      "CONFORMITY_UNIT": "CONFORMITY_UNIT",
+      "REPOSITORY_UNIT": "REPOSITORY_UNIT"
+    }
+  }
+}

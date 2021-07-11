@@ -1,0 +1,24 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "question",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "answer",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20201229134333",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "faq",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

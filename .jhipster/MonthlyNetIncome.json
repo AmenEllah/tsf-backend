@@ -1,0 +1,24 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "incomesFR",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "incomesEN",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20210107140510",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "monthly_income",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

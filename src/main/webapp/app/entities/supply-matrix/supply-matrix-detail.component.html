@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="supplyMatrix">
+            <h2><span jhiTranslate="tfsBackendApp.supplyMatrix.detail.title">Supply Matrix</span> {{ supplyMatrix.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.categoryId">Category Id</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.categoryId }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.incomeTypeCode">Income Type Code</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.incomeTypeCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.incomeType">Income Type</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.incomeType }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.monthlyIncomeId">Monthly Income Id</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.monthlyIncomeId }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.marketCode">Market Code</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.marketCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.market">Market</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.market }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.segmentCode">Segment Code</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.segmentCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.segment">Segment</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.segment }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.activityId">Activity Id</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.activityId }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.professionCode">Profession Code</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.professionCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.supplyMatrix.profession">Profession</span></dt>
+                <dd>
+                    <span>{{ supplyMatrix.profession }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/supply-matrix', supplyMatrix.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

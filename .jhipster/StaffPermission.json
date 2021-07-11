@@ -1,0 +1,43 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "idRole",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idBu",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "action",
+      "fieldType": "ActionPermission",
+      "fieldValues": "MODIFYING,READING,ALL",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "scopePermission",
+      "fieldType": "ScopePermission",
+      "fieldValues": "ALL,IN_AGENCY,ONLY_AFFECTED",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "staffType",
+      "fieldType": "StaffType",
+      "fieldValues": "ADVISOR_UNIT,MARKET_UNIT,AGENCY_UNIT,CONFORMITY_UNIT,REPOSITORY_UNIT"
+    }
+  ],
+  "changelogDate": "20210330094710",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "staff_permission",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

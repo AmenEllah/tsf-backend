@@ -1,0 +1,25 @@
+{
+  "tfsBackendApp": {
+    "financialInfo": {
+      "home": {
+        "title": "Financial Infos",
+        "createLabel": "Create a new Financial Info",
+        "createOrEditLabel": "Create or edit a Financial Info",
+        "notFound": "No Financial Infos found"
+      },
+      "created": "A new Financial Info is created with identifier {{ param }}",
+      "updated": "A Financial Info is updated with identifier {{ param }}",
+      "deleted": "A Financial Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Financial Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Financial Info"
+      },
+      "activity": "Activity",
+      "category": "Category",
+      "personalInfo": "Personal Info",
+      "monthlyNetIncome": "Monthly Net Income"
+    }
+  }
+}

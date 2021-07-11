@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-supply-matrix-heading" jhiTranslate="tfsBackendApp.supplyMatrix.home.createOrEditLabel">Create or edit a Supply Matrix</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.categoryId" for="field_categoryId">Category Id</label>
+                    <input type="number" class="form-control" name="categoryId" id="field_categoryId"
+                           formControlName="categoryId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.incomeTypeCode" for="field_incomeTypeCode">Income Type Code</label>
+                    <input type="text" class="form-control" name="incomeTypeCode" id="field_incomeTypeCode"
+                           formControlName="incomeTypeCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.incomeType" for="field_incomeType">Income Type</label>
+                    <input type="text" class="form-control" name="incomeType" id="field_incomeType"
+                           formControlName="incomeType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.monthlyIncomeId" for="field_monthlyIncomeId">Monthly Income Id</label>
+                    <input type="number" class="form-control" name="monthlyIncomeId" id="field_monthlyIncomeId"
+                           formControlName="monthlyIncomeId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.marketCode" for="field_marketCode">Market Code</label>
+                    <input type="number" class="form-control" name="marketCode" id="field_marketCode"
+                           formControlName="marketCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.market" for="field_market">Market</label>
+                    <input type="text" class="form-control" name="market" id="field_market"
+                           formControlName="market"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.segmentCode" for="field_segmentCode">Segment Code</label>
+                    <input type="text" class="form-control" name="segmentCode" id="field_segmentCode"
+                           formControlName="segmentCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.segment" for="field_segment">Segment</label>
+                    <input type="text" class="form-control" name="segment" id="field_segment"
+                           formControlName="segment"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.activityId" for="field_activityId">Activity Id</label>
+                    <input type="number" class="form-control" name="activityId" id="field_activityId"
+                           formControlName="activityId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.professionCode" for="field_professionCode">Profession Code</label>
+                    <input type="text" class="form-control" name="professionCode" id="field_professionCode"
+                           formControlName="professionCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.supplyMatrix.profession" for="field_profession">Profession</label>
+                    <input type="text" class="form-control" name="profession" id="field_profession"
+                           formControlName="profession"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

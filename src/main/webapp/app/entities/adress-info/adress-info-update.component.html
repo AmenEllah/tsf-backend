@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-adress-info-heading" jhiTranslate="tfsBackendApp.adressInfo.home.createOrEditLabel">Create or edit a Adress Info</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adressInfo.countryOfResidence" for="field_countryOfResidence">Country Of Residence</label>
+                    <input type="text" class="form-control" name="countryOfResidence" id="field_countryOfResidence"
+                           formControlName="countryOfResidence"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adressInfo.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adressInfo.zip" for="field_zip">Zip</label>
+                    <input type="number" class="form-control" name="zip" id="field_zip"
+                           formControlName="zip"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adressInfo.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                           formControlName="city"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adressInfo.personalInfo" for="field_personalInfo">Personal Info</label>
+                    <select class="form-control" id="field_personalInfo" name="personalInfo" formControlName="personalInfoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personalInfoOption.id" *ngFor="let personalInfoOption of personalinfos; trackBy: trackById">{{ personalInfoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

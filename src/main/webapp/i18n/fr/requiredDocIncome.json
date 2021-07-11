@@ -1,0 +1,24 @@
+{
+  "tfsBackendApp": {
+    "requiredDocIncome": {
+      "home": {
+        "title": "RequiredDocIncomes",
+        "createLabel": "Créer un nouveau Required Doc Income",
+        "createOrEditLabel": "Créer ou éditer un Required Doc Income",
+        "notFound": "Aucun Required Doc Income trouvé"
+      },
+      "created": "Un nouveau Required Doc Income a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Required Doc Income avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Required Doc Income avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Required Doc Income {{ id }} ?"
+      },
+      "detail": {
+        "title": "Required Doc Income"
+      },
+      "type": "Type",
+      "path": "Path",
+      "requiredDoc": "Required Doc"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+INSERT INTO TSF_REC.FAQ (ID, ANSWER, QUESTION) VALUES (1, 'Est-ce-que je peux ouvrir un compte individuel sans choisir une offre ?', 'Est-ce-que je peux ouvrir un compte individuel sans choisir une offre ?');
+INSERT INTO TSF_REC.FAQ (ID, ANSWER, QUESTION) VALUES (2, 'Est-ce-que je peux ouvrir un compte individuel sans choisir une offre ?', 'Est-ce-que je peux ouvrir un compte individuel sans choisir une offre ?');
+INSERT INTO TSF_REC.FAQ (ID, ANSWER, QUESTION) VALUES (3, 'Est-ce-que je peux ouvrir un compte individuel sans choisir une offre ?', 'Est-ce-que je peux ouvrir un compte individuel sans choisir une offre ?');

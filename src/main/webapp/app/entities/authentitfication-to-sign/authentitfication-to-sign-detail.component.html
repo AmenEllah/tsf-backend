@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="authentitficationToSign">
+            <h2><span jhiTranslate="tfsBackendApp.authentitficationToSign.detail.title">Authentitfication To Sign</span> {{ authentitficationToSign.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.authentitficationToSign.email">Email</span></dt>
+                <dd>
+                    <span>{{ authentitficationToSign.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.authentitficationToSign.token">Token</span></dt>
+                <dd>
+                    <span>{{ authentitficationToSign.token }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.authentitficationToSign.dateCreation">Date Creation</span></dt>
+                <dd>
+                    <span>{{ authentitficationToSign.dateCreation }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.authentitficationToSign.valide">Valide</span></dt>
+                <dd>
+                    <span>{{ authentitficationToSign.valide }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/authentitfication-to-sign', authentitficationToSign.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

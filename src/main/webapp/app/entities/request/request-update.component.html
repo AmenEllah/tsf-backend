@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-request-heading" jhiTranslate="tfsBackendApp.request.home.createOrEditLabel">Create or edit a Request</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.visioDate" for="field_visioDate">Visio Date</label>
+                    <div class="input-group">
+                        <input id="field_visioDate" type="text" class="form-control" name="visioDate" ngbDatepicker #visioDateDp="ngbDatepicker" formControlName="visioDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="visioDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.sendingMailDate" for="field_sendingMailDate">Sending Mail Date</label>
+                    <div class="input-group">
+                        <input id="field_sendingMailDate" type="text" class="form-control" name="sendingMailDate" ngbDatepicker #sendingMailDateDp="ngbDatepicker" formControlName="sendingMailDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="sendingMailDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.state" for="field_state">State</label>
+                    <input type="checkbox" class="form-control" name="state" id="field_state"
+                           formControlName="state"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.step" for="field_step">Step</label>
+                    <input type="text" class="form-control" name="step" id="field_step"
+                           formControlName="step"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.codeVerification" for="field_codeVerification">Code Verification</label>
+                    <input type="text" class="form-control" name="codeVerification" id="field_codeVerification"
+                           formControlName="codeVerification"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.amplitudeRef" for="field_amplitudeRef">Amplitude Ref</label>
+                    <input type="number" class="form-control" name="amplitudeRef" id="field_amplitudeRef"
+                           formControlName="amplitudeRef"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.requestState" for="field_requestState">Request State</label>
+                    <select class="form-control" name="requestState" formControlName="requestState" id="field_requestState">
+                        <option value="VISIO">{{ 'tfsBackendApp.StateRequest.VISIO' | translate }}</option>
+                        <option value="TREATMENT">{{ 'tfsBackendApp.StateRequest.TREATMENT' | translate }}</option>
+                        <option value="DIGIGO">{{ 'tfsBackendApp.StateRequest.DIGIGO' | translate }}</option>
+                        <option value="SIGN">{{ 'tfsBackendApp.StateRequest.SIGN' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.requestStatus" for="field_requestStatus">Request Status</label>
+                    <select class="form-control" name="requestStatus" formControlName="requestStatus" id="field_requestStatus">
+                        <option value="PENDING">{{ 'tfsBackendApp.RequestStatus.PENDING' | translate }}</option>
+                        <option value="ACCEPTED">{{ 'tfsBackendApp.RequestStatus.ACCEPTED' | translate }}</option>
+                        <option value="REFUSED">{{ 'tfsBackendApp.RequestStatus.REFUSED' | translate }}</option>
+                        <option value="AFFECTED">{{ 'tfsBackendApp.RequestStatus.AFFECTED' | translate }}</option>
+                        <option value="DEROGATED">{{ 'tfsBackendApp.RequestStatus.DEROGATED' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.request.offer" for="field_offer">Offer</label>
+                    <select class="form-control" id="field_offer" name="offer" formControlName="offerId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="offerOption.id" *ngFor="let offerOption of offers; trackBy: trackById">{{ offerOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

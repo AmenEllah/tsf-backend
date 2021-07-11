@@ -1,0 +1,24 @@
+{
+  "tfsBackendApp": {
+    "otherResidencyFile": {
+      "home": {
+        "title": "OtherResidencyFiles",
+        "createLabel": "Créer un nouveau Other Residency File",
+        "createOrEditLabel": "Créer ou éditer un Other Residency File",
+        "notFound": "Aucun Other Residency File trouvé"
+      },
+      "created": "Un nouveau Other Residency File a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Other Residency File avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Other Residency File avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Other Residency File {{ id }} ?"
+      },
+      "detail": {
+        "title": "Other Residency File"
+      },
+      "path": "Path",
+      "requiredDoc": "Required Doc",
+      "residencyDocument": "Residency Document"
+    }
+  }
+}

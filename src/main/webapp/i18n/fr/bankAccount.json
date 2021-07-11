@@ -1,0 +1,26 @@
+{
+  "tfsBackendApp": {
+    "bankAccount": {
+      "home": {
+        "title": "BankAccounts",
+        "createLabel": "Créer un nouveau Bank Account",
+        "createOrEditLabel": "Créer ou éditer un Bank Account",
+        "notFound": "Aucun Bank Account trouvé"
+      },
+      "created": "Un nouveau Bank Account a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bank Account avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bank Account avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Bank Account {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bank Account"
+      },
+      "libelleFR": "Libelle FR",
+      "libelleEN": "Libelle EN",
+      "descriptionFR": "Description FR",
+      "descriptionEN": "Description EN",
+      "requestBankAccount": "Request Bank Account"
+    }
+  }
+}

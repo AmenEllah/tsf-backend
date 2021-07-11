@@ -1,0 +1,25 @@
+{
+  "tfsBackendApp": {
+    "residencyDocument": {
+      "home": {
+        "title": "ResidencyDocuments",
+        "createLabel": "Créer un nouveau Residency Document",
+        "createOrEditLabel": "Créer ou éditer un Residency Document",
+        "notFound": "Aucun Residency Document trouvé"
+      },
+      "created": "Un nouveau Residency Document a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Residency Document avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Residency Document avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Residency Document {{ id }} ?"
+      },
+      "detail": {
+        "title": "Residency Document"
+      },
+      "labelFR": "Label FR",
+      "labelEN": "Label EN",
+      "requiredDocResidency": "Required Doc Residency",
+      "otherResidencyFile": "Other Residency File"
+    }
+  }
+}

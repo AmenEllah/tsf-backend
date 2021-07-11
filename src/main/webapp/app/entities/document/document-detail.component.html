@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="document">
+            <h2><span jhiTranslate="tfsBackendApp.document.detail.title">Document</span> {{ document.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.document.typeDocument">Type Document</span></dt>
+                <dd>
+                    <span>{{ document.typeDocument }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.document.nomFichier">Nom Fichier</span></dt>
+                <dd>
+                    <span>{{ document.nomFichier }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.document.emplacement">Emplacement</span></dt>
+                <dd>
+                    <span>{{ document.emplacement }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.document.idDossierSigned">Id Dossier Signed</span></dt>
+                <dd>
+                    <span>{{ document.idDossierSigned }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.document.hasSigned">Has Signed</span></dt>
+                <dd>
+                    <span>{{ document.hasSigned }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.document.dateCreation">Date Creation</span></dt>
+                <dd>
+                    <span>{{ document.dateCreation }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.document.dateUpdate">Date Update</span></dt>
+                <dd>
+                    <span>{{ document.dateUpdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.document.request">Request</span></dt>
+                <dd>
+                    <div *ngIf="document.requestId">
+                        <a [routerLink]="['/request', document.requestId, 'view']">{{ document.requestId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/document', document.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

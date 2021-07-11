@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-financial-info-heading" jhiTranslate="tfsBackendApp.financialInfo.home.createOrEditLabel">Create or edit a Financial Info</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.financialInfo.activity" for="field_activity">Activity</label>
+                    <select class="form-control" id="field_activity" name="activity" formControlName="activityId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="activityOption.id" *ngFor="let activityOption of activities; trackBy: trackById">{{ activityOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.financialInfo.category" for="field_category">Category</label>
+                    <select class="form-control" id="field_category" name="category" formControlName="categoryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoryOption.id" *ngFor="let categoryOption of categories; trackBy: trackById">{{ categoryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.financialInfo.personalInfo" for="field_personalInfo">Personal Info</label>
+                    <select class="form-control" id="field_personalInfo" name="personalInfo" formControlName="personalInfoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personalInfoOption.id" *ngFor="let personalInfoOption of personalinfos; trackBy: trackById">{{ personalInfoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.financialInfo.monthlyNetIncome" for="field_monthlyNetIncome">Monthly Net Income</label>
+                    <select class="form-control" id="field_monthlyNetIncome" name="monthlyNetIncome" formControlName="monthlyNetIncomeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="monthlyNetIncomeOption.id" *ngFor="let monthlyNetIncomeOption of monthlynetincomes; trackBy: trackById">{{ monthlyNetIncomeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

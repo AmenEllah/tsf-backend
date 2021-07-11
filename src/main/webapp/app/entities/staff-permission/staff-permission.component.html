@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="tfsBackendApp.staffPermission.home.title">Staff Permissions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-staff-permission" [routerLink]="['/staff-permission/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="tfsBackendApp.staffPermission.home.createLabel">
+            Create a new Staff Permission
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="staffPermissions?.length === 0">
+        <span jhiTranslate="tfsBackendApp.staffPermission.home.notFound">No staffPermissions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="staffPermissions && staffPermissions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idRole"><span jhiTranslate="tfsBackendApp.staffPermission.idRole">Id Role</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idBu"><span jhiTranslate="tfsBackendApp.staffPermission.idBu">Id Bu</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="action"><span jhiTranslate="tfsBackendApp.staffPermission.action">Action</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="scopePermission"><span jhiTranslate="tfsBackendApp.staffPermission.scopePermission">Scope Permission</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="staffType"><span jhiTranslate="tfsBackendApp.staffPermission.staffType">Staff Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let staffPermission of staffPermissions ;trackBy: trackId">
+                    <td><a [routerLink]="['/staff-permission', staffPermission.id, 'view']">{{ staffPermission.id }}</a></td>
+                    <td>{{ staffPermission.idRole }}</td>
+                    <td>{{ staffPermission.idBu }}</td>
+                    <td jhiTranslate="{{ 'tfsBackendApp.ActionPermission.' + staffPermission.action }}">{{ staffPermission.action }}</td>
+                    <td jhiTranslate="{{ 'tfsBackendApp.ScopePermission.' + staffPermission.scopePermission }}">{{ staffPermission.scopePermission }}</td>
+                    <td jhiTranslate="{{ 'tfsBackendApp.StaffType.' + staffPermission.staffType }}">{{ staffPermission.staffType }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/staff-permission', staffPermission.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/staff-permission', staffPermission.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(staffPermission)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="staffPermissions && staffPermissions.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

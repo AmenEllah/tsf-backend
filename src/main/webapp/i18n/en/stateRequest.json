@@ -1,0 +1,11 @@
+{
+  "tfsBackendApp": {
+    "StateRequest": {
+      "null": "",
+      "VISIO": "VISIO",
+      "TREATMENT": "TREATMENT",
+      "DIGIGO": "DIGIGO",
+      "SIGN": "SIGN"
+    }
+  }
+}

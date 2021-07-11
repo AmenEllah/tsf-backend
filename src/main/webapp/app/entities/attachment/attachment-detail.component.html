@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="attachment">
+            <h2><span jhiTranslate="tfsBackendApp.attachment.detail.title">Attachment</span> {{ attachment.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.attachment.name">Name</span></dt>
+                <dd>
+                    <span>{{ attachment.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.attachment.path">Path</span></dt>
+                <dd>
+                    <span>{{ attachment.path }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.attachment.attachmentType">Attachment Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.AttachmentType.' + attachment.attachmentType }}">{{ attachment.attachmentType }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.attachment.fileName">File Name</span></dt>
+                <dd>
+                    <span>{{ attachment.fileName }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.attachment.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'tfsBackendApp.AttachmentStatus.' + attachment.status }}">{{ attachment.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.attachment.request">Request</span></dt>
+                <dd>
+                    <div *ngIf="attachment.requestId">
+                        <a [routerLink]="['/request', attachment.requestId, 'view']">{{ attachment.requestId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/attachment', attachment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

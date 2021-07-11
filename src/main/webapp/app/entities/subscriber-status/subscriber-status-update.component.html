@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-subscriber-status-heading" jhiTranslate="tfsBackendApp.subscriberStatus.home.createOrEditLabel">Create or edit a Subscriber Status</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subscriberStatus.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subscriberStatus.numCin" for="field_numCin">Num Cin</label>
+                    <input type="text" class="form-control" name="numCin" id="field_numCin"
+                           formControlName="numCin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subscriberStatus.withAppelVisio" for="field_withAppelVisio">With Appel Visio</label>
+                    <select class="form-control" name="withAppelVisio" formControlName="withAppelVisio" id="field_withAppelVisio">
+                        <option value="O">{{ 'tfsBackendApp.appelVisioStatus.O' | translate }}</option>
+                        <option value="N">{{ 'tfsBackendApp.appelVisioStatus.N' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subscriberStatus.withCertif" for="field_withCertif">With Certif</label>
+                    <select class="form-control" name="withCertif" formControlName="withCertif" id="field_withCertif">
+                        <option value="O">{{ 'tfsBackendApp.withCertifStatus.O' | translate }}</option>
+                        <option value="N">{{ 'tfsBackendApp.withCertifStatus.N' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subscriberStatus.withSignature" for="field_withSignature">With Signature</label>
+                    <select class="form-control" name="withSignature" formControlName="withSignature" id="field_withSignature">
+                        <option value="O">{{ 'tfsBackendApp.withSignatureStatus.O' | translate }}</option>
+                        <option value="N">{{ 'tfsBackendApp.withSignatureStatus.N' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subscriberStatus.dateAppelVisio" for="field_dateAppelVisio">Date Appel Visio</label>
+                    <div class="input-group">
+                        <input id="field_dateAppelVisio" type="text" class="form-control" name="dateAppelVisio" ngbDatepicker #dateAppelVisioDp="ngbDatepicker" formControlName="dateAppelVisio"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateAppelVisioDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

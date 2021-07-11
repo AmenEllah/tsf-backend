@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-required-doc-residency-heading" jhiTranslate="tfsBackendApp.requiredDocResidency.home.createOrEditLabel">Create or edit a Required Doc Residency</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.num" for="field_num">Num</label>
+                    <input type="text" class="form-control" name="num" id="field_num"
+                           formControlName="num"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.deliveryDate" for="field_deliveryDate">Delivery Date</label>
+                    <div class="input-group">
+                        <input id="field_deliveryDate" type="text" class="form-control" name="deliveryDate" ngbDatepicker #deliveryDateDp="ngbDatepicker" formControlName="deliveryDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="deliveryDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.experationDate" for="field_experationDate">Experation Date</label>
+                    <div class="input-group">
+                        <input id="field_experationDate" type="text" class="form-control" name="experationDate" ngbDatepicker #experationDateDp="ngbDatepicker" formControlName="experationDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="experationDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.illimitedExperationDate" for="field_illimitedExperationDate">Illimited Experation Date</label>
+                    <input type="checkbox" class="form-control" name="illimitedExperationDate" id="field_illimitedExperationDate"
+                           formControlName="illimitedExperationDate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.residencyRecto" for="field_residencyRecto">Residency Recto</label>
+                    <input type="text" class="form-control" name="residencyRecto" id="field_residencyRecto"
+                           formControlName="residencyRecto"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.residencyVerso" for="field_residencyVerso">Residency Verso</label>
+                    <input type="text" class="form-control" name="residencyVerso" id="field_residencyVerso"
+                           formControlName="residencyVerso"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.requiredDoc" for="field_requiredDoc">Required Doc</label>
+                    <select class="form-control" id="field_requiredDoc" name="requiredDoc" formControlName="requiredDocId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requiredDocOption.id" *ngFor="let requiredDocOption of requireddocs; trackBy: trackById">{{ requiredDocOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.requiredDocResidency.residencyDocument" for="field_residencyDocument">Residency Document</label>
+                    <select class="form-control" id="field_residencyDocument" name="residencyDocument" formControlName="residencyDocumentId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="residencyDocumentOption.id" *ngFor="let residencyDocumentOption of residencydocuments; trackBy: trackById">{{ residencyDocumentOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

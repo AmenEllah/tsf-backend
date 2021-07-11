@@ -1,0 +1,14 @@
+{
+  "tfsBackendApp": {
+    "AttachmentType": {
+      "null": "",
+      "CIN_RECTO": "CIN_RECTO",
+      "CIN_VERSO": "CIN_VERSO",
+      "SECOND_NATIONALITY": "SECOND_NATIONALITY",
+      "RESIDENCY_RECTO": "RESIDENCY_RECTO",
+      "RESIDENCY_VERSO": "RESIDENCY_VERSO",
+      "INCOME": "INCOME",
+      "FATCA": "FATCA"
+    }
+  }
+}

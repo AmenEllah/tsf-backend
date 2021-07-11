@@ -1,0 +1,26 @@
+{
+  "tfsBackendApp": {
+    "adressInfo": {
+      "home": {
+        "title": "Adress Infos",
+        "createLabel": "Create a new Adress Info",
+        "createOrEditLabel": "Create or edit a Adress Info",
+        "notFound": "No Adress Infos found"
+      },
+      "created": "A new Adress Info is created with identifier {{ param }}",
+      "updated": "A Adress Info is updated with identifier {{ param }}",
+      "deleted": "A Adress Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Adress Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Adress Info"
+      },
+      "countryOfResidence": "Country Of Residence",
+      "address": "Address",
+      "zip": "Zip",
+      "city": "City",
+      "personalInfo": "Personal Info"
+    }
+  }
+}

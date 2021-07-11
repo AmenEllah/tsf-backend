@@ -1,0 +1,31 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "financialInfo",
+      "otherEntityName": "financialInfo",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "category"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "categoryNameFR",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "categoryNameEN",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20201229140037",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "category",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination"
+}

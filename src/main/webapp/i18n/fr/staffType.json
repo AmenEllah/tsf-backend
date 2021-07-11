@@ -1,0 +1,12 @@
+{
+  "tfsBackendApp": {
+    "StaffType": {
+      "null": "",
+      "ADVISOR_UNIT": "ADVISOR_UNIT",
+      "MARKET_UNIT": "MARKET_UNIT",
+      "AGENCY_UNIT": "AGENCY_UNIT",
+      "CONFORMITY_UNIT": "CONFORMITY_UNIT",
+      "REPOSITORY_UNIT": "REPOSITORY_UNIT"
+    }
+  }
+}

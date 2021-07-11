@@ -1,0 +1,33 @@
+{
+  "tfsBackendApp": {
+    "request": {
+      "home": {
+        "title": "Requests",
+        "createLabel": "Créer un nouveau Request",
+        "createOrEditLabel": "Créer ou éditer un Request",
+        "notFound": "Aucun Request trouvé"
+      },
+      "created": "Un nouveau Request a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Request avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Request avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Request {{ id }} ?"
+      },
+      "detail": {
+        "title": "Request"
+      },
+      "visioDate": "Visio Date",
+      "sendingMailDate": "Sending Mail Date",
+      "state": "State",
+      "step": "Step",
+      "codeVerification": "Code Verification",
+      "amplitudeRef": "Amplitude Ref",
+      "requestState": "Request State",
+      "requestStatus": "Request Status",
+      "offer": "Offer",
+      "personalInfo": "Personal Info",
+      "document": "Document",
+      "requestBankAccount": "Request Bank Account"
+    }
+  }
+}

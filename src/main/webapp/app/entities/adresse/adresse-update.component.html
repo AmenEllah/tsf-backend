@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-adresse-heading" jhiTranslate="tfsBackendApp.adresse.home.createOrEditLabel">Create or edit a Adresse</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adresse.rue" for="field_rue">Rue</label>
+                    <input type="text" class="form-control" name="rue" id="field_rue"
+                           formControlName="rue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adresse.codePostal" for="field_codePostal">Code Postal</label>
+                    <input type="number" class="form-control" name="codePostal" id="field_codePostal"
+                           formControlName="codePostal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adresse.ville" for="field_ville">Ville</label>
+                    <input type="text" class="form-control" name="ville" id="field_ville"
+                           formControlName="ville"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.adresse.pays" for="field_pays">Pays</label>
+                    <input type="text" class="form-control" name="pays" id="field_pays"
+                           formControlName="pays"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

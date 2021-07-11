@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-subcontracting-staff-heading" jhiTranslate="tfsBackendApp.subcontractingStaff.home.createOrEditLabel">Create or edit a Subcontracting Staff</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subcontractingStaff.matricule" for="field_matricule">Matricule</label>
+                    <input type="number" class="form-control" name="matricule" id="field_matricule"
+                           formControlName="matricule"/>
+                    <div *ngIf="editForm.get('matricule')!.invalid && (editForm.get('matricule')!.dirty || editForm.get('matricule')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('matricule')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('matricule')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subcontractingStaff.idBu" for="field_idBu">Id Bu</label>
+                    <input type="number" class="form-control" name="idBu" id="field_idBu"
+                           formControlName="idBu"/>
+                    <div *ngIf="editForm.get('idBu')!.invalid && (editForm.get('idBu')!.dirty || editForm.get('idBu')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idBu')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idBu')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subcontractingStaff.idRole" for="field_idRole">Id Role</label>
+                    <input type="number" class="form-control" name="idRole" id="field_idRole"
+                           formControlName="idRole"/>
+                    <div *ngIf="editForm.get('idRole')!.invalid && (editForm.get('idRole')!.dirty || editForm.get('idRole')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idRole')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idRole')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subcontractingStaff.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tfsBackendApp.subcontractingStaff.idPoste" for="field_idPoste">Id Poste</label>
+                    <input type="number" class="form-control" name="idPoste" id="field_idPoste"
+                           formControlName="idPoste"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

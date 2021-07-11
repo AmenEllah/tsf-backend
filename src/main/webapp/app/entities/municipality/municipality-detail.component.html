@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="municipality">
+            <h2><span jhiTranslate="tfsBackendApp.municipality.detail.title">Municipality</span> {{ municipality.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tfsBackendApp.municipality.name">Name</span></dt>
+                <dd>
+                    <span>{{ municipality.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="tfsBackendApp.municipality.governorate">Governorate</span></dt>
+                <dd>
+                    <div *ngIf="municipality.governorateId">
+                        <a [routerLink]="['/governorate', municipality.governorateId, 'view']">{{ municipality.governorateId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/municipality', municipality.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
